@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        movement_speed = 10;
+        movement_speed = 5;
 
         player_current_weapon = new MeleeWeapon(10, 0.1f, 0);
     }
