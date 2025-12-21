@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     int movement_speed;
     public InputAction move_action;
     Vector2 input_state;
+    Weapon player_current_weapon;
     void Start()
     {
         move_action.Enable();
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
 
         movement_speed = 10;
+
+        player_current_weapon = new MeleeWeapon(10, 0.1f, 0);
     }
     void Update()
     {
@@ -33,10 +36,24 @@ public class Player : MonoBehaviour
             animator.SetFloat("Move Y", input_state.y);    
         }
         animator.SetBool("IsRunning", input_state.sqrMagnitude > 0.01f);
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            weapon_fire();
+        }
     }
     void FixedUpdate()
     {
         Vector2 key_pressed = rigidbody2d.position + input_state * movement_speed * Time.deltaTime;  
         rigidbody2d.MovePosition(key_pressed);
+    }
+
+    // ============================================================= \\
+    //                           WEAPON                              \\
+    // ============================================================= \\
+    void weapon_fire()
+    {
+        Weapon current_weapon = player_current_weapon;
+        current_weapon.Launch((rigidbody2d.position, input_state));
     }
 }
