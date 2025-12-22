@@ -20,7 +20,7 @@ public class MeleeWeapon : Weapon
     }
     public override void Launch((Vector2, Vector2) input)
     {
-        Debug.Log("I am doing melee");
+        Debug.Log("I am doing melee" + weapon_damage);
     }
 }
 public class RangeWeapon : Weapon

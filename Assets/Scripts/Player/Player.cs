@@ -6,12 +6,13 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private PickupManager pickup_manager;
     Rigidbody2D rigidbody2d;
     Animator animator;
     int movement_speed;
     public InputAction move_action;
     Vector2 input_state;
-    Weapon player_current_weapon;
+    public Weapon player_current_weapon;
     void Start()
     {
         move_action.Enable();
@@ -55,5 +56,16 @@ public class Player : MonoBehaviour
     {
         Weapon current_weapon = player_current_weapon;
         current_weapon.Launch((rigidbody2d.position, input_state));
+    }
+    // ============================================================= \\
+    //                           PICKUP                              \\
+    // ============================================================= \\
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Pickup pickup = collision.GetComponent<Pickup>();
+        if (pickup != null)
+        {
+            pickup_manager.HandlePickup(this, pickup);
+        }       
     }
 }
