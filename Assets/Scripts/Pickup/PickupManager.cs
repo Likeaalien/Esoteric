@@ -14,6 +14,6 @@ public class PickupManager : MonoBehaviour
     }
     void PickupWeapon(Player player)
     {
-        player.player_current_weapon = new MeleeWeapon(50, 0.1f, 0);
+        player.player_current_weapon = new MeleeWeapon(50, 0.1f, 1f);
     }
 }

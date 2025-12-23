@@ -21,6 +21,7 @@ public class MeleeWeapon : Weapon
     public override void Launch((Vector2, Vector2) input)
     {
         Debug.Log("I am doing melee" + weapon_damage);
+        Physics2D.OverlapCircleAll(input.Item1 + input.Item2, melee_range);
     }
 }
 public class RangeWeapon : Weapon

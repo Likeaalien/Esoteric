@@ -9,9 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] private PickupManager pickup_manager;
     Rigidbody2D rigidbody2d;
     Animator animator;
-    int movement_speed;
-    public InputAction move_action;
     Vector2 input_state;
+    public InputAction move_action;
+    int player_movement_speed;
+    Vector2 player_direction;    
     public Weapon player_current_weapon;
     void Start()
     {
@@ -20,9 +21,8 @@ public class Player : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        movement_speed = 5;
-
-        player_current_weapon = new MeleeWeapon(10, 0.1f, 0);
+        player_movement_speed = 5;
+        player_current_weapon = new MeleeWeapon(10, 0.1f, 0.1f);
     }
     void Update()
     {
@@ -32,10 +32,12 @@ public class Player : MonoBehaviour
         if (input_state.sqrMagnitude != 0)
         {
             input_state.Normalize();
+            player_direction = input_state;
 
             animator.SetFloat("Move X", input_state.x);
             animator.SetFloat("Move Y", input_state.y);    
         }
+
         animator.SetBool("IsRunning", input_state.sqrMagnitude > 0.01f);
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -45,7 +47,7 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Vector2 key_pressed = rigidbody2d.position + input_state * movement_speed * Time.deltaTime;  
+        Vector2 key_pressed = rigidbody2d.position + input_state * player_movement_speed * Time.deltaTime;  
         rigidbody2d.MovePosition(key_pressed);
     }
 
@@ -55,7 +57,7 @@ public class Player : MonoBehaviour
     void weapon_fire()
     {
         Weapon current_weapon = player_current_weapon;
-        current_weapon.Launch((rigidbody2d.position, input_state));
+        current_weapon.Launch((rigidbody2d.position, player_direction));
     }
     // ============================================================= \\
     //                           PICKUP                              \\
@@ -67,5 +69,14 @@ public class Player : MonoBehaviour
         {
             pickup_manager.HandlePickup(this, pickup);
         }       
+    }
+
+    // ============================================================= \\
+    //                            DEBUG                              \\
+    // ============================================================= \\
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position + (Vector3)player_direction, 1);     
     }
 }

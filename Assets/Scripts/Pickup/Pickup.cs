@@ -6,6 +6,7 @@ public enum PickupType
 {
     Weapon_test
 }
+
 public class Pickup : MonoBehaviour
 {
     public PickupType pickup_type;
