@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 public abstract class Weapon
 {
@@ -26,16 +28,21 @@ public class MeleeWeapon : Weapon
 }
 public class RangeWeapon : Weapon
 {
-    private GameObject ammo_prefab;
+    private GameObject projectile_prefab;
     private int weapon_ammo;
-    public RangeWeapon(int weapon_damage, float weapon_cooldown, GameObject ammo_prefab, int weapon_ammo)
+    private int projectile_velocity;
+    public RangeWeapon(int weapon_damage, float weapon_cooldown, GameObject projectile_prefab, int weapon_ammo, int projectile_velocity)
         : base(weapon_damage, weapon_cooldown)
     {
-        this.ammo_prefab = ammo_prefab;
+        this.projectile_prefab = projectile_prefab;
         this.weapon_ammo = weapon_ammo;
+        this.projectile_velocity = projectile_velocity;
     }
     public override void Launch((Vector2, Vector2) input)
     {
-        Debug.Log("I am doing range attack");    
+        GameObject rock_object = UnityEngine.Object.Instantiate(projectile_prefab, input.Item1 + input.Item2, Quaternion.identity);
+        Rigidbody2D projectile = rock_object.GetComponent<Rigidbody2D>();
+        projectile.AddForce(input.Item2.normalized * projectile_velocity);
+        UnityEngine.Object.Destroy(rock_object, 3f);
     }
 }

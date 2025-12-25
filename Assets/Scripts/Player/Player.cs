@@ -14,12 +14,17 @@ public class Player : MonoBehaviour
     int player_movement_speed;
     Vector2 player_direction;    
     public Weapon player_current_weapon;
+    public GameObject rock_prefab;
+    public GameObject arrow_prefab;
     void Start()
     {
         move_action.Enable();
 
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        rock_prefab = Resources.Load<GameObject>("Projectile/Rock");
+        arrow_prefab = Resources.Load<GameObject>("Projectile/Arrow");
 
         player_movement_speed = 5;
         player_current_weapon = new MeleeWeapon(10, 0.1f, 0.1f);

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public enum PickupType
 {
-    Weapon_test
+    Weapon_test,
+    Rock_Dwayne,
+    Arrow_test
 }
 
 public class Pickup : MonoBehaviour
