@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.U2D.Animation;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private PickupManager pickup_manager;
+    [SerializeField] private SpriteLibrary sprite_library;
     Rigidbody2D rigidbody2d;
     Animator animator;
     Vector2 input_state;
@@ -64,6 +66,11 @@ public class Player : MonoBehaviour
         Weapon current_weapon = player_current_weapon;
         current_weapon.Launch((rigidbody2d.position, player_direction));
     }
+    
+    public void ChangeSprite(string sprite_name)
+    {
+        sprite_library.spriteLibraryAsset = Resources.Load<SpriteLibraryAsset>("SpriteLibrary/" + sprite_name);
+    }
     // ============================================================= \\
     //                           PICKUP                              \\
     // ============================================================= \\
@@ -81,7 +88,7 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position + (Vector3)player_direction, 1);     
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawWireSphere(transform.position + (Vector3)player_direction, 1);     
     }
 }
