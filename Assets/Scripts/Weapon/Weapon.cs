@@ -40,7 +40,8 @@ public class RangeWeapon : Weapon
     }
     public override void Launch((Vector2, Vector2) input)
     {
-        GameObject rock_object = UnityEngine.Object.Instantiate(projectile_prefab, input.Item1 + input.Item2, Quaternion.identity);
+        float angle = Mathf.Atan2(input.Item2.y, input.Item2.x) * Mathf.Rad2Deg;
+        GameObject rock_object = UnityEngine.Object.Instantiate(projectile_prefab, input.Item1 + input.Item2, Quaternion.Euler(0, 0, angle));
         Rigidbody2D projectile = rock_object.GetComponent<Rigidbody2D>();
         projectile.AddForce(input.Item2.normalized * projectile_velocity);
         UnityEngine.Object.Destroy(rock_object, 3f);

@@ -26,10 +26,11 @@ public class PickupManager : MonoBehaviour
     void PickupArrow(Player player)
     {
         player.player_current_weapon = new RangeWeapon(50, 0f, player.arrow_prefab, 10, 500);
-        player.ChangeSprite("Unarmed");
+        player.ChangeSprite("Bow");
     }
     void PickupRock(Player player)
     {
         player.player_current_weapon = new RangeWeapon(10, 0f, player.rock_prefab, 10, 150);
+        player.ChangeSprite("Unarmed");
     }
 }

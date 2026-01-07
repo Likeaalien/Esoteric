@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     void weapon_fire()
     {
+        animator.SetTrigger("isAttacking");
         Weapon current_weapon = player_current_weapon;
         current_weapon.Launch((rigidbody2d.position, player_direction));
     }
