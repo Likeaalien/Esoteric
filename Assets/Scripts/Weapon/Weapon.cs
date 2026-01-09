@@ -1,10 +1,14 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+public enum MeleeType
+{
+    Sharp
+}
 public abstract class Weapon
 {
     protected int weapon_damage;
-    protected float weapon_cooldown;
+    protected float weapon_cooldown;    
     public Weapon(int weapon_damage, float weapon_cooldown)
     {
         this.weapon_damage = weapon_damage;
@@ -15,15 +19,27 @@ public abstract class Weapon
 public class MeleeWeapon : Weapon
 {
     private float melee_range;
-    public MeleeWeapon(int weapon_damage, float weapon_cooldown, float melee_range)
+    public MeleeType weapon_type;
+    public MeleeWeapon(int weapon_damage, float weapon_cooldown, float melee_range, MeleeType weapon_type)
         : base(weapon_damage, weapon_cooldown)
     {
         this.melee_range = melee_range;    
+        this.weapon_type = MeleeType.Sharp;
     }
     public override void Launch((Vector2, Vector2) input)
     {
         Debug.Log("I am doing melee" + weapon_damage);
-        Physics2D.OverlapCircleAll(input.Item1 + input.Item2, melee_range);
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(input.Item1 + input.Item2,melee_range);
+
+        foreach (Collider2D hit in hits)
+        {
+            Spiderweb web = hit.GetComponent<Spiderweb>();
+            if (web != null && weapon_type == MeleeType.Sharp)
+            {
+                web.CutWeb();
+            }
+        }
     }
 }
 public class RangeWeapon : Weapon

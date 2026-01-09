@@ -20,7 +20,7 @@ public class PickupManager : MonoBehaviour
     }
     void PickupWeapon(Player player)
     {
-        player.player_current_weapon = new MeleeWeapon(50, 0.1f, 1f);
+        player.player_current_weapon = new MeleeWeapon(50, 0.1f, 1f, MeleeType.Sharp);
         player.ChangeSprite("Sword");
     }
     void PickupArrow(Player player)

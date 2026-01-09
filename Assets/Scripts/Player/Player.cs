@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.U2D.Animation;
@@ -29,7 +26,7 @@ public class Player : MonoBehaviour
         arrow_prefab = Resources.Load<GameObject>("Projectile/Arrow");
 
         player_movement_speed = 5;
-        player_current_weapon = new MeleeWeapon(10, 0.1f, 0.1f);
+        player_current_weapon = new MeleeWeapon(10, 0.1f, 0.1f, MeleeType.Sharp);
     }
     void Update()
     {
@@ -67,7 +64,7 @@ public class Player : MonoBehaviour
         Weapon current_weapon = player_current_weapon;
         current_weapon.Launch((rigidbody2d.position, player_direction));
     }
-    
+
     public void ChangeSprite(string sprite_name)
     {
         sprite_library.spriteLibraryAsset = Resources.Load<SpriteLibraryAsset>("SpriteLibrary/" + sprite_name);
