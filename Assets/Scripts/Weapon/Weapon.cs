@@ -37,7 +37,7 @@ public class MeleeWeapon : Weapon
             Spiderweb web = hit.GetComponent<Spiderweb>();
             if (web != null && weapon_type == MeleeType.Sharp)
             {
-                web.CutWeb();
+                web.OnHit(this);
             }
         }
     }

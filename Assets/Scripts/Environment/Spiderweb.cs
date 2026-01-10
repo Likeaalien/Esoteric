@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Spiderweb : MonoBehaviour
+public class Spiderweb : MonoBehaviour, IHittable
 {
-    public int web_hp = 3;
-    public void CutWeb()
-    {
-        if (web_hp > 0)
-        {
-            web_hp -= 1;   
-        }
-    }
+    public int spiderweb_hp = 3;
 
-    void Update()
+    public void OnHit(Weapon weapon)
     {
-        if (web_hp == 0)
+        if (spiderweb_hp > 0)
+        {
+            spiderweb_hp -= 1;
+        }
+
+        if (spiderweb_hp == 0)
         {
             Destroy(gameObject);
         }
