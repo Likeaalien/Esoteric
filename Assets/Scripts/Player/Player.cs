@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     public Weapon player_current_weapon;
     public GameObject rock_prefab;
     public GameObject arrow_prefab;
+
+    // New TODO
+    public GameObject equipped_weapon_prefab;
     void Start()
     {
         move_action.Enable();
@@ -26,13 +29,15 @@ public class Player : MonoBehaviour
         arrow_prefab = Resources.Load<GameObject>("Projectile/Arrow");
 
         player_movement_speed = 5;
-        player_current_weapon = new MeleeWeapon(10, 0.1f, 0.1f, MeleeType.Sharp);
+        player_set_unarmed();
     }
     void Update()
     {
+        // Animations
+        animator.SetBool("IsRunning", input_state.sqrMagnitude > 0.01f);
+
+        // Player direction
         input_state = move_action.ReadValue<Vector2>();
-        
-        // @dev: Game uses discrete coordinates for controls. This checks whether any move_action input is currently active.
         if (input_state.sqrMagnitude != 0)
         {
             input_state.Normalize();
@@ -42,12 +47,15 @@ public class Player : MonoBehaviour
             animator.SetFloat("Move Y", input_state.y);    
         }
 
-        animator.SetBool("IsRunning", input_state.sqrMagnitude > 0.01f);
-
+        // Input key
         if (Input.GetKeyDown(KeyCode.C))
         {
             weapon_fire();
         }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            weapon_drop();    
+        } 
     }
     void FixedUpdate()
     {
@@ -58,13 +66,28 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     //                           WEAPON                              \\
     // ============================================================= \\
+    void player_set_unarmed()
+    {
+        player_current_weapon = new MeleeWeapon(10, 0.1f, 0.1f, MeleeType.Sharp);
+        ChangeSprite("Unarmed");   
+    }
     void weapon_fire()
     {
         animator.SetTrigger("isAttacking");
         Weapon current_weapon = player_current_weapon;
         current_weapon.Launch((rigidbody2d.position, player_direction));
     }
+    void weapon_drop()
+    {
+        if (equipped_weapon_prefab == null)
+            return;
+        
+        float angle = Mathf.Atan2(transform.position.y, player_direction.x) * Mathf.Rad2Deg;
+        Instantiate(equipped_weapon_prefab, rigidbody2d.position + 2*player_direction, Quaternion.Euler(0, 0, angle));
 
+        player_set_unarmed();
+        equipped_weapon_prefab = null; 
+    }
     public void ChangeSprite(string sprite_name)
     {
         sprite_library.spriteLibraryAsset = Resources.Load<SpriteLibraryAsset>("SpriteLibrary/" + sprite_name);

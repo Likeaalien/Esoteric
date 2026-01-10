@@ -22350,6 +22350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2066369283046352603, guid: 2289a0520195b1548b838f383430f206,
         type: 3}
+      propertyPath: drop_weapon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066369283046352603, guid: 2289a0520195b1548b838f383430f206,
+        type: 3}
       propertyPath: sword_prefab
       value: 
       objectReference: {fileID: 493794302}

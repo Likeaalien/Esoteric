@@ -8,7 +8,7 @@ public enum MeleeType
 public abstract class Weapon
 {
     protected int weapon_damage;
-    protected float weapon_cooldown;    
+    protected float weapon_cooldown;
     public Weapon(int weapon_damage, float weapon_cooldown)
     {
         this.weapon_damage = weapon_damage;
@@ -57,9 +57,9 @@ public class RangeWeapon : Weapon
     public override void Launch((Vector2, Vector2) input)
     {
         float angle = Mathf.Atan2(input.Item2.y, input.Item2.x) * Mathf.Rad2Deg;
-        GameObject rock_object = UnityEngine.Object.Instantiate(projectile_prefab, input.Item1 + input.Item2, Quaternion.Euler(0, 0, angle));
-        Rigidbody2D projectile = rock_object.GetComponent<Rigidbody2D>();
+        GameObject game_object = UnityEngine.Object.Instantiate(projectile_prefab, input.Item1 + input.Item2, Quaternion.Euler(0, 0, angle));
+        Rigidbody2D projectile = game_object.GetComponent<Rigidbody2D>();
         projectile.AddForce(input.Item2.normalized * projectile_velocity);
-        UnityEngine.Object.Destroy(rock_object, 3f);
+        UnityEngine.Object.Destroy(game_object, 3f);
     }
 }

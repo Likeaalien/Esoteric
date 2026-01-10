@@ -16,11 +16,12 @@ public class PickupManager : MonoBehaviour
                 PickupRock(player);
                 break;
         }
-        // Destroy(pickup.gameObject);
+        Destroy(pickup.gameObject);
     }
     void PickupWeapon(Player player)
     {
         player.player_current_weapon = new MeleeWeapon(50, 0.1f, 1f, MeleeType.Sharp);
+        player.equipped_weapon_prefab = Resources.Load<GameObject>("Prefabs/Sword");
         player.ChangeSprite("Sword");
     }
     void PickupArrow(Player player)
