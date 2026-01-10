@@ -35,16 +35,11 @@ public class MeleeWeapon : Weapon
 
         foreach (Collider2D hit in hits)
         {
-            Spiderweb web = hit.GetComponent<Spiderweb>();
-            if (web != null && weapon_type == MeleeType.Sharp)
-            {
-                web.OnHit(this);
-            }
+            IHittable hittable = hit.GetComponent<IHittable>();
 
-            BirchTree tree = hit.GetComponent<BirchTree>();
-            if (tree != null && weapon_type == MeleeType.Tool)
+            if (hittable != null)
             {
-                tree.OnHit(this);
+                hittable.OnHit(this);
             }
         }
     }
