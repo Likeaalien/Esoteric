@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum PickupType
 {
-    Weapon_test,
+    Weapon_Sword,
+    Weapon_Axe,
     Rock_Dwayne,
     Arrow_test
 }

@@ -6,8 +6,11 @@ public class PickupManager : MonoBehaviour
     {
         switch(pickup.pickup_type)
         {
-            case PickupType.Weapon_test:
-                PickupWeapon(player);
+            case PickupType.Weapon_Sword:
+                PickupWeaponSword(player);
+                break;
+            case PickupType.Weapon_Axe:
+                PickupWeaponAxe(player);
                 break;
             case PickupType.Arrow_test:
                 PickupArrow(player);
@@ -18,11 +21,16 @@ public class PickupManager : MonoBehaviour
         }
         Destroy(pickup.gameObject);
     }
-    void PickupWeapon(Player player)
+    void PickupWeaponSword(Player player)
     {
         player.player_current_weapon = new MeleeWeapon(50, 0.1f, 1f, MeleeType.Sharp);
         player.equipped_weapon_prefab = Resources.Load<GameObject>("Prefabs/Sword");
         player.ChangeSprite("Sword");
+    }
+    void PickupWeaponAxe(Player player)
+    {
+        player.player_current_weapon = new MeleeWeapon(5, 0.1f, 1f, MeleeType.Tool);
+        player.equipped_weapon_prefab = Resources.Load<GameObject>("Prefabs/Axe");    
     }
     void PickupArrow(Player player)
     {

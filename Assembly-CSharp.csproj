@@ -68,6 +68,7 @@
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IHittable.cs" />
+    <Compile Include="Assets\Scripts\Environment\BirchTree.cs" />
     <Compile Include="Assets\Scripts\Environment\Spiderweb.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Pickup\PickupManager.cs" />

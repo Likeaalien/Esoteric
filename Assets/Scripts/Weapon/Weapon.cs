@@ -3,7 +3,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 public enum MeleeType
 {
-    Sharp
+    Sharp,
+    Tool
 }
 public abstract class Weapon
 {
@@ -24,7 +25,7 @@ public class MeleeWeapon : Weapon
         : base(weapon_damage, weapon_cooldown)
     {
         this.melee_range = melee_range;    
-        this.weapon_type = MeleeType.Sharp;
+        this.weapon_type = weapon_type;
     }
     public override void Launch((Vector2, Vector2) input)
     {
@@ -38,6 +39,12 @@ public class MeleeWeapon : Weapon
             if (web != null && weapon_type == MeleeType.Sharp)
             {
                 web.OnHit(this);
+            }
+
+            BirchTree tree = hit.GetComponent<BirchTree>();
+            if (tree != null && weapon_type == MeleeType.Tool)
+            {
+                tree.OnHit(this);
             }
         }
     }
