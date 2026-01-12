@@ -6,8 +6,9 @@ public enum PickupType
 {
     Weapon_Sword,
     Weapon_Axe,
+    Weapon_Pickaxe,
     Rock_Dwayne,
-    Arrow_test
+    Weapon_Bow
 }
 
 public class Pickup : MonoBehaviour

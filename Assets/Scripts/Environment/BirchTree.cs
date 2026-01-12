@@ -14,7 +14,7 @@ public class BirchTree : MonoBehaviour, IHittable
         }
       
         MeleeWeapon melee_weapon = (MeleeWeapon)weapon;
-        if(melee_weapon.weapon_type != MeleeType.Tool)
+        if(melee_weapon.weapon_type != MeleeType.Tool_Axe)
         {
             return;
         }

@@ -4,7 +4,8 @@ using UnityEngine;
 public enum MeleeType
 {
     Sharp,
-    Tool
+    Tool_Axe,
+    Tool_Pickaxe
 }
 public abstract class Weapon
 {

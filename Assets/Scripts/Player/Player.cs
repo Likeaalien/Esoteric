@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
-        rock_prefab = Resources.Load<GameObject>("Projectile/Rock");
+        rock_prefab = Resources.Load<GameObject>("Prefabs/Rock");
         arrow_prefab = Resources.Load<GameObject>("Projectile/Arrow");
 
         player_movement_speed = 5;
@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     void player_set_unarmed()
     {
-        player_current_weapon = new MeleeWeapon(10, 0.1f, 0.1f, MeleeType.Sharp);
+        player_current_weapon = new MeleeWeapon(1, 0.1f, 0.1f, MeleeType.Sharp);
         ChangeSprite("Unarmed");   
     }
     void weapon_fire()
@@ -97,6 +97,9 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (equipped_weapon_prefab != null)
+            return;
+
         Pickup pickup = collision.GetComponent<Pickup>();
         if (pickup != null)
         {

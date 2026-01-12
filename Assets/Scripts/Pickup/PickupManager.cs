@@ -4,6 +4,7 @@ public class PickupManager : MonoBehaviour
 {
     public void HandlePickup(Player player, Pickup pickup)
     {
+        
         switch(pickup.pickup_type)
         {
             case PickupType.Weapon_Sword:
@@ -12,12 +13,15 @@ public class PickupManager : MonoBehaviour
             case PickupType.Weapon_Axe:
                 PickupWeaponAxe(player);
                 break;
-            case PickupType.Arrow_test:
-                PickupArrow(player);
+            case PickupType.Weapon_Pickaxe:
+                PickupWeaponPickaxe(player);
+                break;
+            case PickupType.Weapon_Bow:
+                PickupBow(player);
                 break;
             case PickupType.Rock_Dwayne:
                 PickupRock(player);
-                break;
+                break;  
         }
         Destroy(pickup.gameObject);
     }
@@ -29,12 +33,20 @@ public class PickupManager : MonoBehaviour
     }
     void PickupWeaponAxe(Player player)
     {
-        player.player_current_weapon = new MeleeWeapon(5, 0.1f, 1f, MeleeType.Tool);
-        player.equipped_weapon_prefab = Resources.Load<GameObject>("Prefabs/Axe");    
+        player.player_current_weapon = new MeleeWeapon(5, 0.1f, 1f, MeleeType.Tool_Axe);
+        player.equipped_weapon_prefab = Resources.Load<GameObject>("Prefabs/Axe"); 
+        player.ChangeSprite("Axe");   
     }
-    void PickupArrow(Player player)
+    void PickupWeaponPickaxe(Player player)
+    {
+        player.player_current_weapon = new MeleeWeapon(10, 0.1f, 1f, MeleeType.Tool_Pickaxe);
+        player.equipped_weapon_prefab = Resources.Load<GameObject>("Prefabs/Pickaxe"); 
+        player.ChangeSprite("Pickaxe");   
+    }
+    void PickupBow(Player player)
     {
         player.player_current_weapon = new RangeWeapon(50, 0f, player.arrow_prefab, 10, 500);
+        player.equipped_weapon_prefab = Resources.Load<GameObject>("Prefabs/Bow"); 
         player.ChangeSprite("Bow");
     }
     void PickupRock(Player player)
