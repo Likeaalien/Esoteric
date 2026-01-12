@@ -6,15 +6,9 @@ public class BirchTree : MonoBehaviour, IHittable
 {
     private int tree_hp = 3;
 
-    public void OnHit(Weapon weapon)
-    {
-        if (weapon is not MeleeWeapon)
-        {
-            return;
-        }
-      
-        MeleeWeapon melee_weapon = (MeleeWeapon)weapon;
-        if(melee_weapon.weapon_type != MeleeType.Tool_Axe)
+    public void OnHit(MeleeWeapon weapon)
+    {      
+        if(weapon.weapon_type != MeleeType.Tool_Axe)
         {
             return;
         }

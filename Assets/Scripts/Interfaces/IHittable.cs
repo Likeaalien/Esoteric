@@ -1,4 +1,4 @@
 public interface IHittable
 {
-    void OnHit(Weapon weapon);
+    void OnHit(MeleeWeapon weapon);
 }

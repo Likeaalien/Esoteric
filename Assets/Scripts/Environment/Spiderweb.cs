@@ -7,15 +7,9 @@ public class Spiderweb : MonoBehaviour, IHittable
 {
     private int spiderweb_hp = 3;
 
-    public void OnHit(Weapon weapon)
+    public void OnHit(MeleeWeapon weapon)
     {
-        if (weapon is not MeleeWeapon)
-        {
-            return;
-        }
-
-        MeleeWeapon melee_weapon = (MeleeWeapon)weapon;
-        if(melee_weapon.weapon_type != MeleeType.Sharp)
+        if(weapon.weapon_type != MeleeType.Sharp)
         {
             return;
         }
