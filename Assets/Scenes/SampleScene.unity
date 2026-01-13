@@ -560,6 +560,33 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &588997632 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4387246487430068247, guid: 48e429213797a18438ef4ba454e05381,
+    type: 3}
+  m_PrefabInstance: {fileID: 2868039643393490198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &588997638
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588997632}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1dea3df4a450f2c4ab7d4b84f2581f54, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -22491,7 +22518,7 @@ PrefabInstance:
     - target: {fileID: 3156564459411825399, guid: 822fba740245c1b4faf2f26a23483b20,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -26.63
+      value: -26.6
       objectReference: {fileID: 0}
     - target: {fileID: 3156564459411825399, guid: 822fba740245c1b4faf2f26a23483b20,
         type: 3}
@@ -22904,6 +22931,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1140352070811569240, guid: 19c0895385838ea4b925a069ff8d9955,
+        type: 3}
+      propertyPath: pickup_type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4911018717119402496, guid: 19c0895385838ea4b925a069ff8d9955,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -23834,7 +23866,7 @@ PrefabInstance:
     - target: {fileID: 4387246487430068247, guid: 48e429213797a18438ef4ba454e05381,
         type: 3}
       propertyPath: m_Name
-      value: NPC
+      value: Uancha NPC
       objectReference: {fileID: 0}
     - target: {fileID: 4958322807949105552, guid: 48e429213797a18438ef4ba454e05381,
         type: 3}
@@ -23889,7 +23921,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4387246487430068247, guid: 48e429213797a18438ef4ba454e05381,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 588997638}
   m_SourcePrefab: {fileID: 100100000, guid: 48e429213797a18438ef4ba454e05381, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
