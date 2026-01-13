@@ -98,16 +98,19 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (equipped_weapon_prefab != null)
+        Pickup pickup = collision.GetComponent<Pickup>();
+        if (pickup == null)
+            return;
+            
+        if (IsWeapon(pickup.pickup_type) && equipped_weapon_prefab != null)
             return;
 
-        Pickup pickup = collision.GetComponent<Pickup>();
-        if (pickup != null)
-        {
-            pickup_manager.HandlePickup(this, pickup);
-        }       
+        pickup_manager.HandlePickup(this, pickup);           
     }
-
+    bool IsWeapon(PickupType type)
+    {
+        return type.ToString().StartsWith("Weapon_");
+    }
     // ============================================================= \\
     //                            DEBUG                              \\
     // ============================================================= \\
