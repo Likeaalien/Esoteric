@@ -4,7 +4,6 @@ public class PickupManager : MonoBehaviour
 {
     public void HandlePickup(Player player, Pickup pickup)
     {
-        
         switch(pickup.pickup_type)
         {
             case PickupType.Weapon_Sword:
@@ -18,6 +17,9 @@ public class PickupManager : MonoBehaviour
                 break;
             case PickupType.Weapon_Bow:
                 PickupBow(player);
+                break;
+            case PickupType.Wood:
+                PickupResourcesWood(player);
                 break;
             case PickupType.Rock_Dwayne:
                 PickupRock(player);
@@ -53,5 +55,9 @@ public class PickupManager : MonoBehaviour
     {
         player.player_current_weapon = new RangeWeapon(10, 0f, player.rock_prefab, 10, 150);
         player.ChangeSprite("Unarmed");
+    }
+    void PickupResourcesWood(Player player)
+    {
+        player.wood_currency += 1;
     }
 }

@@ -15,9 +15,8 @@ public class Player : MonoBehaviour
     public Weapon player_current_weapon;
     public GameObject rock_prefab;
     public GameObject arrow_prefab;
-
-    // New TODO
     public GameObject equipped_weapon_prefab;
+    public int wood_currency;
     void Start()
     {
         move_action.Enable();
@@ -30,6 +29,8 @@ public class Player : MonoBehaviour
 
         player_movement_speed = 5;
         player_set_unarmed();
+
+        wood_currency = 0;
     }
     void Update()
     {
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             weapon_drop();    
-        } 
+        }
     }
     void FixedUpdate()
     {
