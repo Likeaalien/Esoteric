@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Bridge
+    uniqueID: 1489673897
+    locked: 0
   - name: Layer 1
     uniqueID: 2425651459
     locked: 0
