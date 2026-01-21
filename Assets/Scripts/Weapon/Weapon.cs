@@ -10,7 +10,7 @@ public enum MeleeType
 public abstract class Weapon
 {
     protected int weapon_damage;
-    protected float weapon_cooldown;
+    public float weapon_cooldown;
     public Weapon(int weapon_damage, float weapon_cooldown)
     {
         this.weapon_damage = weapon_damage;

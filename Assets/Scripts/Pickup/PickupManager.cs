@@ -30,7 +30,7 @@ public class PickupManager : MonoBehaviour
                 player.ChangeSprite("Sword");
                 break;
             case PickupType.Weapon_Axe:
-                player.player_current_weapon = new MeleeWeapon(5, 0.1f, 1f, MeleeType.Tool_Axe);
+                player.player_current_weapon = new MeleeWeapon(5, 2f, 1f, MeleeType.Tool_Axe);
                 player.equipped_weapon_prefab = Resources.Load<GameObject>("Prefabs/Axe"); 
                 player.ChangeSprite("Axe"); 
                 break;

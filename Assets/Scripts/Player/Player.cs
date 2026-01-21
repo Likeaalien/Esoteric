@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.U2D.Animation;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     public GameObject arrow_prefab;
     public GameObject equipped_weapon_prefab;
     public int wood_currency;
+    public float weapon_used;
     void Start()
     {
         move_action.Enable();
@@ -74,9 +76,12 @@ public class Player : MonoBehaviour
     }
     void weapon_fire()
     {
+        if (weapon_used + player_current_weapon.weapon_cooldown > Time.fixedTime)
+            return;
+
         animator.SetTrigger("isAttacking");
-        Weapon current_weapon = player_current_weapon;
-        current_weapon.Launch((rigidbody2d.position, player_direction));
+        player_current_weapon.Launch((rigidbody2d.position, player_direction));
+        weapon_used = Time.fixedTime;
     }
     void weapon_drop()
     {
