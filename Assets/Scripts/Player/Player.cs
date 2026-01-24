@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
         player_set_unarmed();
 
         wood_currency = 0;
+        weapon_used = 0;
     }
     void Update()
     {
@@ -53,11 +54,15 @@ public class Player : MonoBehaviour
         // Input key
         if (Input.GetKeyDown(KeyCode.C))
         {
-            weapon_fire();
+            weapon_start_attack();
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            weapon_drop();    
+            weapon_drop();
+        }
+        if (weapon_attack_started() && weapon_used + player_current_weapon.weapon_cooldown < Time.time)
+        {
+            weapon_end_attack();
         }
     }
     void FixedUpdate()
@@ -74,14 +79,19 @@ public class Player : MonoBehaviour
         player_current_weapon = new MeleeWeapon(1, 0.1f, 0.1f, MeleeType.Sharp);
         ChangeSprite("Unarmed");   
     }
-    void weapon_fire()
+    bool weapon_attack_started()
     {
-        if (weapon_used + player_current_weapon.weapon_cooldown > Time.fixedTime)
-            return;
-
-        animator.SetTrigger("isAttacking");
+        return weapon_used != 0;
+    }
+    void weapon_start_attack()
+    {
+        weapon_used = Time.time;
+        animator.SetTrigger("isAttacking"); 
+    }
+    void weapon_end_attack()
+    {
         player_current_weapon.Launch((rigidbody2d.position, player_direction));
-        weapon_used = Time.fixedTime;
+        weapon_used = 0;
     }
     void weapon_drop()
     {
