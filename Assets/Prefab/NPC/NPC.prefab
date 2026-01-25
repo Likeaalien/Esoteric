@@ -171,4 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036c29c743ac0ef4291310d47a8e5f08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Uancha_wood: 0
+  nameText: {fileID: 0}
+  npcName: NPC

@@ -2,6 +2,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.U2D.Animation;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     public GameObject equipped_weapon_prefab;
     public int wood_currency;
     public float weapon_used;
+    public Text wood_text;
     void Start()
     {
         move_action.Enable();
@@ -64,6 +66,7 @@ public class Player : MonoBehaviour
         {
             weapon_end_attack();
         }
+        wood_text.text = "Wood count: " + wood_currency.ToString();
     }
     void FixedUpdate()
     {
@@ -85,6 +88,9 @@ public class Player : MonoBehaviour
     }
     void weapon_start_attack()
     {
+        if(weapon_attack_started())
+            return;
+
         weapon_used = Time.time;
         animator.SetTrigger("isAttacking"); 
     }
