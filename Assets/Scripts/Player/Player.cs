@@ -1,12 +1,11 @@
-using System.Threading;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.U2D.Animation;
-using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] private PickupManager pickup_manager;
+    [SerializeField] private ObjectiveManager objective_manager;
     [SerializeField] private SpriteLibrary sprite_library;
     Rigidbody2D rigidbody2d;
     Animator animator;
@@ -20,7 +19,6 @@ public class Player : MonoBehaviour
     public GameObject equipped_weapon_prefab;
     public int wood_currency;
     public float weapon_used;
-    public Text wood_text;
     void Start()
     {
         move_action.Enable();
@@ -34,7 +32,6 @@ public class Player : MonoBehaviour
         player_movement_speed = 5;
         player_set_unarmed();
 
-        wood_currency = 0;
         weapon_used = 0;
     }
     void Update()
@@ -66,7 +63,6 @@ public class Player : MonoBehaviour
         {
             weapon_end_attack();
         }
-        wood_text.text = "Wood count: " + wood_currency.ToString();
     }
     void FixedUpdate()
     {
@@ -119,15 +115,24 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        ObjectiveTrigger trigger = collision.GetComponent<ObjectiveTrigger>();
+        if (trigger != null)
+        {
+            objective_manager.HandleTriggers(trigger);  
+            return; 
+        }
+        
         Pickup pickup = collision.GetComponent<Pickup>();
-        if (pickup == null)
-            return;
-            
-        if (IsWeapon(pickup.pickup_type) && equipped_weapon_prefab != null)
-            return;
+        if (pickup != null)
+        {
+            if (IsWeapon(pickup.pickup_type) && equipped_weapon_prefab != null)
+                return;   
 
-        pickup_manager.HandlePickup(this, pickup);           
+            pickup_manager.HandlePickup(this, pickup);
+            return;   
+        }
     }
+
     bool IsWeapon(PickupType type)
     {
         return type.ToString().StartsWith("Weapon_");
