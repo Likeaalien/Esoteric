@@ -3,8 +3,10 @@ using UnityEngine;
 public enum Triggers
 {
     Start_trigger,
-    Trigger_1,
-    Trigger_2
+    Uancha_quest_trigger,
+    Axe_trigger,
+    Uancha_quest_done,
+    Hunter_quest_trigger,
 }
 public class ObjectiveTrigger : MonoBehaviour
 {

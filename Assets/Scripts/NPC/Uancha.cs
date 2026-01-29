@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Uancha : MonoBehaviour
 {
-    private bool Uancha_Quest_1_is_completed;
+    public bool Uancha_Quest_1_is_completed;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -21,7 +18,8 @@ public class Uancha : MonoBehaviour
             {
                 player.wood_currency -= 5;
                 Uancha_Quest_1_is_completed = true;
-                Instantiate(Resources.Load<GameObject>("Prefabs/Sword"), transform.position + 2 * Vector3.left, Quaternion.identity); 
+                Instantiate(Resources.Load<GameObject>("Prefabs/Sword"), transform.position + 2 * Vector3.left, Quaternion.identity);
+                Instantiate(Resources.Load<GameObject>("Trigger/After_Uancha")); 
             }
         }
     }
