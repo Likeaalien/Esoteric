@@ -76,7 +76,9 @@
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Environment\Target.cs" />
     <Compile Include="Assets\Scripts\Pickup\PickupManager.cs" />
+    <Compile Include="Assets\Scripts\Environment\Veins.cs" />
     <Compile Include="Assets\Scripts\Pickup\Pickup.cs" />
+    <Compile Include="Assets\Scripts\Environment\GoldVein.cs" />
     <Compile Include="Assets\Scripts\Objective\ObjectiveManager.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\StairsLayerTrigger.cs" />
     <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
