@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public GameObject arrow_prefab;
     public GameObject equipped_weapon_prefab;
     public int wood_currency;
+    public int diamond_currency;
+    public int gold_currency;
     public float weapon_used;
     void Start()
     {

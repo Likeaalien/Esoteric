@@ -9,7 +9,9 @@ public enum PickupType
     Weapon_Pickaxe,
     Weapon_Rock,
     Weapon_Bow,
-    Resource_Wood
+    Resource_Wood,
+    Resource_Gold,
+    Resource_Diamond
 }
 
 public class Pickup : MonoBehaviour

@@ -2,7 +2,7 @@ using UnityEngine;
 public class Uancha : MonoBehaviour
 {
     public bool Uancha_Quest_1_is_completed;
-
+    
     void OnTriggerEnter2D(Collider2D collider)
     {
         if(Uancha_Quest_1_is_completed)
