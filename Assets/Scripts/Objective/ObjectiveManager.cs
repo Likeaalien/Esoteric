@@ -35,6 +35,9 @@ public class ObjectiveManager : MonoBehaviour
                 current_objective = PlayerObjectives.None;
                 objective_text.text = "Find the hunter";
                 break;
+            case Triggers.Wooden_door_key_trigger:
+                objective_text.text = "Door";
+                break;
         }
         Destroy(trigger.gameObject);
     }

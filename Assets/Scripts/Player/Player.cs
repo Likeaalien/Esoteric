@@ -17,10 +17,15 @@ public class Player : MonoBehaviour
     public GameObject rock_prefab;
     public GameObject arrow_prefab;
     public GameObject equipped_weapon_prefab;
+    
+    // ============================================================= \\
+    //                          INVENTORY                            \\
+    // ============================================================= \\
     public int wood_currency;
     public int diamond_currency;
     public int gold_currency;
     public float weapon_used;
+    public bool wooden_key;
     void Start()
     {
         move_action.Enable();
@@ -35,6 +40,7 @@ public class Player : MonoBehaviour
         player_set_unarmed();
 
         weapon_used = 0;
+        wooden_key = false;
     }
     void Update()
     {

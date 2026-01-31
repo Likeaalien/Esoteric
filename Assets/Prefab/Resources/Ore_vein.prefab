@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6524726652357884472}
   - component: {fileID: 1007145202622875949}
   m_Layer: 0
-  m_Name: Diamond_vein
+  m_Name: Ore_vein
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

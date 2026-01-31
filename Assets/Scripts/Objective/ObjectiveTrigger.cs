@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public enum Triggers
 {
     Start_trigger,
@@ -7,6 +6,7 @@ public enum Triggers
     Axe_trigger,
     Uancha_quest_done,
     Hunter_quest_trigger,
+    Wooden_door_key_trigger
 }
 public class ObjectiveTrigger : MonoBehaviour
 {

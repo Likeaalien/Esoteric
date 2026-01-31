@@ -5,7 +5,7 @@ using UnityEngine;
 public enum VeinType
 {
     GoldVein,
-    DiamonVein,
+    OreVein,
     EmptyVein
 }
 public class Veins : MonoBehaviour, IHittable
@@ -16,7 +16,7 @@ public class Veins : MonoBehaviour, IHittable
     public void OnHit(MeleeWeapon weapon)
     {
         if (weapon.weapon_type != MeleeType.Tool_Pickaxe)
-        return;
+            return;
 
         if (vein_hp > 0)
         {
@@ -24,7 +24,7 @@ public class Veins : MonoBehaviour, IHittable
         }
         if (vein_hp % 3 == 0 && vein_hp < 12)
         {
-            SpawnNugget();   
+            SpawnNugget();
         }
         if (vein_hp == 0)
         {
@@ -36,15 +36,13 @@ public class Veins : MonoBehaviour, IHittable
         switch (vein_type)
         {
             case VeinType.GoldVein:
-            GameObject gold = Resources.Load<GameObject>("Prefabs/GoldNugget");
-            Instantiate(gold, transform.position + Vector3.down, Quaternion.identity);
-            break;
-            
-            case VeinType.DiamonVein:
-            GameObject diamond = Resources.Load<GameObject>("Prefabs/OreNugget");
-            Instantiate(diamond, transform.position + Vector3.down, Quaternion.identity);
-            break;
+                GameObject gold = Resources.Load<GameObject>("Prefabs/GoldNugget");
+                Instantiate(gold, transform.position + Vector3.down, Quaternion.identity);
+                break;
+            case VeinType.OreVein:
+                GameObject diamond = Resources.Load<GameObject>("Prefabs/OreNugget");
+                Instantiate(diamond, transform.position + Vector3.down, Quaternion.identity);
+                break;
         }
     }
-    //         
 }

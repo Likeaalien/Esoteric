@@ -16,7 +16,8 @@ public class PickupManager : MonoBehaviour
 
             case PickupType.Resource_Wood:    
             case PickupType.Resource_Gold:
-            case PickupType.Resource_Diamond:
+            case PickupType.Resource_Ore:
+            case PickupType.Wooden_key:
                 AddResource(player, pickup);
                 break;    
         }
@@ -62,8 +63,11 @@ public class PickupManager : MonoBehaviour
             case PickupType.Resource_Gold:
                 player.gold_currency += 1;
                 break;
-            case PickupType.Resource_Diamond:
+            case PickupType.Resource_Ore:
                 player.diamond_currency += 1;
+                break;
+            case PickupType.Wooden_key:
+                player.wooden_key = true;
                 break;
         }
     }
