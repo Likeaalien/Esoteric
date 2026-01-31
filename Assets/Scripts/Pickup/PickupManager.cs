@@ -14,12 +14,8 @@ public class PickupManager : MonoBehaviour
                 EquipWeapon(player, pickup);
                 break;
 
-            case PickupType.Resource_Wood:
-                AddResource(player, pickup);
-                break;
+            case PickupType.Resource_Wood:    
             case PickupType.Resource_Gold:
-                AddResource(player, pickup);
-                break;
             case PickupType.Resource_Diamond:
                 AddResource(player, pickup);
                 break;    
@@ -62,12 +58,9 @@ public class PickupManager : MonoBehaviour
         {
             case PickupType.Resource_Wood:
                 player.wood_currency += 1;
-                Debug.Log("You picked it up");
                 break;
-            // TODO bug gold
             case PickupType.Resource_Gold:
                 player.gold_currency += 1;
-                Debug.Log("You picked up gold");
                 break;
             case PickupType.Resource_Diamond:
                 player.diamond_currency += 1;
