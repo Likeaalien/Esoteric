@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Environment\Door.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
     <Compile Include="Assets\Scripts\NPC\Hunter.cs" />
+    <Compile Include="Assets\Scripts\NPC\Angel.cs" />
     <Compile Include="Assets\Scripts\NPC\Uancha.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
     <Compile Include="Assets\Scripts\Environment\Bridge.cs" />
