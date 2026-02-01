@@ -5,7 +5,6 @@ public enum PlayerObjectives
 {
     None,
     UanchaObjective,
-    UanchaObjectiveDone,
     HunterObjective,
 }
 public class ObjectiveManager : MonoBehaviour
@@ -15,6 +14,7 @@ public class ObjectiveManager : MonoBehaviour
     public Text objective_text;
     PlayerObjectives current_objective = PlayerObjectives.None;
     int uancha_objective_amount = 5;
+    int hunter_objective_amount = 7;
     public void HandleTriggers(ObjectiveTrigger trigger)
     {
         switch(trigger.last_trigger)
@@ -29,14 +29,19 @@ public class ObjectiveManager : MonoBehaviour
                 current_objective = PlayerObjectives.UanchaObjective;
                 break;
             case Triggers.Uancha_quest_done:
-                current_objective = PlayerObjectives.UanchaObjectiveDone;
+                objective_text.text = "Use the key to unlock the door";    
                 break;
-            case Triggers.Hunter_quest_trigger:
-                current_objective = PlayerObjectives.None;
+            case Triggers.Find_hunter_quest_trigger:
                 objective_text.text = "Find the hunter";
                 break;
-            case Triggers.Wooden_door_key_trigger:
-                objective_text.text = "Door";
+            case Triggers.Hunter_find_pickaxe:
+                objective_text.text = "Find pickaxe in the forest";
+                break; 
+            case Triggers.Hunter_mine_gold:
+                current_objective = PlayerObjectives.HunterObjective;
+                break;
+            case Triggers.Hunter_quest_done:
+                objective_text.text = "Use to bow to lower down the bridge";
                 break;
         }
         Destroy(trigger.gameObject);
@@ -53,9 +58,14 @@ public class ObjectiveManager : MonoBehaviour
                 current_objective = PlayerObjectives.None;
             }
         }
-        if (current_objective == PlayerObjectives.UanchaObjectiveDone && Uancha_NPC.Uancha_Quest_1_is_completed == true)
+        if(current_objective == PlayerObjectives.HunterObjective)
         {
-            objective_text.text = "Push forward";
+             objective_text.text = "Mine gold: " + player.gold_currency.ToString() + "/" + hunter_objective_amount.ToString(); 
+            if(player.gold_currency == hunter_objective_amount)
+            {
+                objective_text.text = "Go back to the Hunter";
+                current_objective = PlayerObjectives.None;
+            }    
         }
     }
 }

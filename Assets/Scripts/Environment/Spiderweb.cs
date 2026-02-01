@@ -9,7 +9,7 @@ public class Spiderweb : MonoBehaviour, IHittable
 
     public void OnHit(MeleeWeapon weapon)
     {
-        if(weapon.weapon_type != MeleeType.Sharp)
+        if (weapon.weapon_type != MeleeType.Tool_Axe && weapon.weapon_type != MeleeType.Sharp)
         {
             return;
         }

@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Objective\ObjectiveTrigger.cs" />
     <Compile Include="Assets\Scripts\Environment\BirchTree.cs" />
     <Compile Include="Assets\Scripts\Environment\Spiderweb.cs" />
+    <Compile Include="Assets\Scripts\Environment\Pot.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Environment\Target.cs" />
     <Compile Include="Assets\Scripts\Pickup\PickupManager.cs" />

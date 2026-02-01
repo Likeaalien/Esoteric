@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     //                          INVENTORY                            \\
     // ============================================================= \\
     public int wood_currency;
-    public int diamond_currency;
+    public int ore_currency;
     public int gold_currency;
     public float weapon_used;
     public bool wooden_key;

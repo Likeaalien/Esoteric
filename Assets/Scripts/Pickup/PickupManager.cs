@@ -64,7 +64,7 @@ public class PickupManager : MonoBehaviour
                 player.gold_currency += 1;
                 break;
             case PickupType.Resource_Ore:
-                player.diamond_currency += 1;
+                player.ore_currency += 1;
                 break;
             case PickupType.Wooden_key:
                 player.wooden_key = true;

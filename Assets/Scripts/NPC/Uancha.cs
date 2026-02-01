@@ -1,8 +1,15 @@
+using TMPro;
 using UnityEngine;
 public class Uancha : MonoBehaviour
 {
     public bool Uancha_Quest_1_is_completed;
-    
+    private TextMeshPro npc_name;
+
+    void Awake()
+    {
+        npc_name = GetComponentInChildren<TextMeshPro>();
+        npc_name.text = "Uancha";
+    }
     void OnTriggerEnter2D(Collider2D collider)
     {
         if(Uancha_Quest_1_is_completed)
@@ -19,7 +26,7 @@ public class Uancha : MonoBehaviour
                 player.wood_currency -= 5;
                 Uancha_Quest_1_is_completed = true;
                 Instantiate(Resources.Load<GameObject>("Prefabs/Wooden_key"), transform.position + 2 * Vector3.left, Quaternion.identity);
-                Instantiate(Resources.Load<GameObject>("Trigger/After_Uancha")); 
+                Instantiate(Resources.Load<GameObject>("Trigger/Trigger_Uancha_2")); 
             }
         }
     }
