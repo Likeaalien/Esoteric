@@ -15,12 +15,12 @@ public class Pot : MonoBehaviour
             return;
         if (player.gold_currency < 7 || player.ore_currency < 7)
             return;
-
+        
         player.gold_currency -= 7;
         player.ore_currency -= 7;
         easter_egg = true;
         Destroy(gameObject);
-        spawn_symbols();
+        spawn_objects();
         spawn_angel();
     }
 
@@ -44,7 +44,7 @@ public class Pot : MonoBehaviour
         angel_component.SetName(list_of_names[random_number]);
     }
 
-    void spawn_symbols()
+    void spawn_objects()
     {
         Instantiate(Resources.Load<GameObject>("Prefabs/Filled_pot"));
         Instantiate(Resources.Load<GameObject>("Prefabs/first_symbol"));
