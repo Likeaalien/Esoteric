@@ -41,9 +41,6 @@ public class Player : MonoBehaviour
 
         weapon_used = 0;
         wooden_key = false;
-
-        ore_currency = 11;
-        gold_currency = 11;
     }
     void Update()
     {

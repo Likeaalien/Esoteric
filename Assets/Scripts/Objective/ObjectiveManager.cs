@@ -41,7 +41,10 @@ public class ObjectiveManager : MonoBehaviour
                 current_objective = PlayerObjectives.HunterObjective;
                 break;
             case Triggers.Hunter_quest_done:
-                objective_text.text = "Use to bow to lower down the bridge";
+                objective_text.text = "Use bow to lower down the bridge";
+                break;
+            case Triggers.Bridge_done:
+                objective_text.text = "Congrats";
                 break;
         }
         Destroy(trigger.gameObject);

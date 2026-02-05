@@ -8,7 +8,8 @@ public enum Triggers
     Find_hunter_quest_trigger,
     Hunter_find_pickaxe,
     Hunter_mine_gold,
-    Hunter_quest_done
+    Hunter_quest_done,
+    Bridge_done
 }
 public class ObjectiveTrigger : MonoBehaviour
 {

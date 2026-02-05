@@ -25,7 +25,7 @@ public class Uancha : MonoBehaviour
             {
                 player.wood_currency -= 5;
                 Uancha_Quest_1_is_completed = true;
-                Instantiate(Resources.Load<GameObject>("Prefabs/Wooden_key"), transform.position + 2 * Vector3.left, Quaternion.identity);
+                Instantiate(Resources.Load<GameObject>("Prefabs/Wooden_key"), transform.position + Vector3.left, Quaternion.identity);
                 Instantiate(Resources.Load<GameObject>("Trigger/Trigger_Uancha_2")); 
             }
         }
