@@ -71,6 +71,14 @@ public class Player : MonoBehaviour
         {
             weapon_end_attack();
         }
+        // NEW
+        /*if (Input.GetKeyDown(KeyCode.E) && current_interactable != null)
+        {
+            if (current_interactable.CanInteract())
+            {
+                current_interactable.Interact();
+            }
+        }*/
     }
     void FixedUpdate()
     {
@@ -138,6 +146,16 @@ public class Player : MonoBehaviour
 
             pickup_manager.HandlePickup(this, pickup);
             return;   
+        }
+ 
+        IInteractable interactable = collision.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+            if (interactable.CanInteract())
+            {
+                interactable.Interact();
+            }
+            return;
         }
     }
 

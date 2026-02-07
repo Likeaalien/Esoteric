@@ -67,8 +67,10 @@
     <Compile Include="Assets\Scripts\Environment\Door.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\TopDownCharacterController.cs" />
     <Compile Include="Assets\Scripts\NPC\Hunter.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IInteractable.cs" />
     <Compile Include="Assets\Scripts\NPC\Angel.cs" />
     <Compile Include="Assets\Scripts\NPC\Uancha.cs" />
+    <Compile Include="Assets\Scripts\UI\DialoguePanel.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\PropsAltar.cs" />
     <Compile Include="Assets\Scripts\Environment\Bridge.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\SpriteColorAnimation.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\Scripts\Environment\Veins.cs" />
     <Compile Include="Assets\Scripts\Pickup\Pickup.cs" />
     <Compile Include="Assets\Scripts\Objective\ObjectiveManager.cs" />
+    <Compile Include="Assets\Scripts\UI\NPCDialogue.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\StairsLayerTrigger.cs" />
     <Compile Include="Assets\Scripts\Weapon\Weapon.cs" />
     <Compile Include="Assets\Cainos\Pixel Art Top Down - Basic\Script\CameraFollow.cs" />

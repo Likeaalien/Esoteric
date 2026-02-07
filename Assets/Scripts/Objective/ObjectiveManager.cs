@@ -63,8 +63,8 @@ public class ObjectiveManager : MonoBehaviour
         }
         if(current_objective == PlayerObjectives.HunterObjective)
         {
-             objective_text.text = "Mine gold: " + player.gold_currency.ToString() + "/" + hunter_objective_amount.ToString(); 
-            if(player.gold_currency == hunter_objective_amount)
+            objective_text.text = "Mine gold: " + player.gold_currency.ToString() + "/" + hunter_objective_amount.ToString(); 
+            if(player.gold_currency >= hunter_objective_amount)
             {
                 objective_text.text = "Go back to the Hunter";
                 current_objective = PlayerObjectives.None;
