@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+
 public class Uancha : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialoguePanel dialogue_panel;
@@ -9,7 +9,7 @@ public class Uancha : MonoBehaviour, IInteractable
     private int dialogue_index;
     public bool is_typing, is_dialogue_active; 
     public bool Uancha_Quest_1_is_completed;
-    private TextMeshPro npc_name_1;
+    private TextMeshPro npc_name_1;    
     
     void Awake()
     {
@@ -53,6 +53,7 @@ public class Uancha : MonoBehaviour, IInteractable
         is_dialogue_active = true;
 
         dialogue_index = 0;
+        dialogue_panel.portrait_image.sprite = dialogue_data.npc_portrait;
         dialogue_panel.name_text.SetText(dialogue_data.npc_name);
         dialogue_panel.gameObject.SetActive(true);
 

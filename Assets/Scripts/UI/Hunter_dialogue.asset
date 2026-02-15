@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e925bb14c1bcbc74baacc6e565c5ed79, type: 3}
   m_Name: Hunter_dialogue
   m_EditorClassIdentifier: 
-  npc_name: 
-  npc_portrait: {fileID: 0}
-  dialogue_lines: []
-  auto_progress_lines: 
+  npc_name: Hunter
+  npc_portrait: {fileID: 21300000, guid: 4c3fba91aa90a0941903804c85f50331, type: 3}
+  dialogue_lines:
+  - Hello there little one
+  - I am protector of this woods
+  - Watch your back
+  auto_progress_lines: 010101
   auto_progress_delay: 1.5
   typing_speed: 0.05
-  voice_sound: {fileID: 0}
-  voice_pitch: 1

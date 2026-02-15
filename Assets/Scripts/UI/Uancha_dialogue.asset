@@ -18,8 +18,7 @@ MonoBehaviour:
   - 'Greetings traveler. Welcome to this Angelic land. '
   - You should meet our king Rhobar V. One of the best king that this lands has ever
     had
-  auto_progress_lines: 0000
+  - Bye
+  auto_progress_lines: 010101
   auto_progress_delay: 1.5
   typing_speed: 0.05
-  voice_sound: {fileID: 0}
-  voice_pitch: 1
