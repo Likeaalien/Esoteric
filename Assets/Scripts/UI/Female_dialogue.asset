@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e925bb14c1bcbc74baacc6e565c5ed79, type: 3}
-  m_Name: Hunter_dialogue
-  m_EditorClassIdentifier: 
-  npc_name: Hunter
-  npc_portrait: {fileID: 21300000, guid: 4c3fba91aa90a0941903804c85f50331, type: 3}
+  m_Name: Female_dialogue
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialog
+  npc_name: Hope
+  npc_portrait: {fileID: -7789694780284919566, guid: a1f5202f55445d64b8c4b6d27964497e,
+    type: 3}
   dialogue_lines:
-  - 'Hello there, little one. I am the protector of these woods. '
-  - 'Bring me some gold, and I shall sell you a bow. '
-  - "\u2026 and watch your back."
-  auto_progress_lines: 010101
+  - Hello, and welcome to this prototype.
+  - 'Press C to swing your weapon. '
+  - 'Press V to drop your weapon. '
+  - Have fun and explore!
+  auto_progress_lines: 01010101
   auto_progress_delay: 1.5
   typing_speed: 0.05

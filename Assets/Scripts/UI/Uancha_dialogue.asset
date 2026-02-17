@@ -15,10 +15,9 @@ MonoBehaviour:
   npc_name: Uancha
   npc_portrait: {fileID: 21300000, guid: 50f9f1fe423e7c146918805ba6538526, type: 3}
   dialogue_lines:
-  - 'Greetings traveler. Welcome to this Angelic land. '
-  - You should meet our king Rhobar V. One of the best king that this lands has ever
-    had
-  - Bye
+  - 'Greetings, traveler. Welcome to this angelic land. '
+  - 'Bring me some wood - but first, you must find an axe. '
+  - It lies near the water, within the forest.
   auto_progress_lines: 010101
   auto_progress_delay: 1.5
   typing_speed: 0.05

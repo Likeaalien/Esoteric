@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private PickupManager pickup_manager;
     [SerializeField] private ObjectiveManager objective_manager;
+    [SerializeField] private DialogueManager dialogue_manager;
     [SerializeField] private SpriteLibrary sprite_library;
     Rigidbody2D rigidbody2d;
     Animator animator;
@@ -71,7 +72,6 @@ public class Player : MonoBehaviour
         {
             weapon_end_attack();
         }
-        // NEW
         /*if (Input.GetKeyDown(KeyCode.E) && current_interactable != null)
         {
             if (current_interactable.CanInteract())
@@ -149,11 +149,11 @@ public class Player : MonoBehaviour
         }
  
         IInteractable interactable = collision.GetComponent<IInteractable>();
-        if (interactable != null)
+        if (interactable != null && interactable.CanInteract())
         {
             if (interactable.CanInteract())
             {
-                interactable.Interact();
+                interactable.Interact(this);
             }
             return;
         }
@@ -163,6 +163,19 @@ public class Player : MonoBehaviour
     {
         return type.ToString().StartsWith("Weapon_");
     }
+
+    // ============================================================= \\
+    //                          DIALOGUE                             \\
+    // ============================================================= \\
+    public void start_dialogue(NPCDialog data)
+    {
+        if(dialogue_manager.is_dialogue_active)
+            return;
+
+        dialogue_manager.dialogue_data = data;
+        dialogue_manager.StartDialogue();
+    }
+
     // ============================================================= \\
     //                            DEBUG                              \\
     // ============================================================= \\
