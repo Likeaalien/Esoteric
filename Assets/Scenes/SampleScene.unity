@@ -125594,6 +125594,7 @@ GameObject:
   - component: {fileID: 1713440979}
   - component: {fileID: 1713440981}
   - component: {fileID: 1713440982}
+  - component: {fileID: 1713440983}
   m_Layer: 27
   m_Name: NPC_Female_1
   m_TagString: Untagged
@@ -125650,7 +125651,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: c3eca3d05d234ca44844db4309b96109, type: 2}
+  m_Sprite: {fileID: 21300000, guid: bb4784a4ede341d4d9cb23376b3d9dbe, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125735,6 +125736,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Female_1
   hope_dialogue_data: {fileID: 11400000, guid: 48209e864d76a8947861d7baa3799ca6, type: 2}
+--- !u!95 &1713440983
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713440978}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2ca88c9cef672f84ea2d973f37c86370, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1715285985
 GameObject:
   m_ObjectHideFlags: 0
