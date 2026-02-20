@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public GameObject rock_prefab;
     public GameObject arrow_prefab;
     public GameObject equipped_weapon_prefab;
+    private IInteractable last_interactable_object;
     
     // ============================================================= \\
     //                          INVENTORY                            \\
@@ -68,17 +69,14 @@ public class Player : MonoBehaviour
         {
             weapon_drop();
         }
+        if (Input.GetKeyDown(KeyCode.E) && last_interactable_object != null)
+        {
+            interact();
+        }
         if (weapon_attack_started() && weapon_used + player_current_weapon.weapon_cooldown < Time.time)
         {
             weapon_end_attack();
         }
-        /*if (Input.GetKeyDown(KeyCode.E) && current_interactable != null)
-        {
-            if (current_interactable.CanInteract())
-            {
-                current_interactable.Interact();
-            }
-        }*/
     }
     void FixedUpdate()
     {
@@ -135,26 +133,28 @@ public class Player : MonoBehaviour
         if (trigger != null)
         {
             objective_manager.HandleTriggers(trigger);  
-            return; 
+            return;
         }
         
         Pickup pickup = collision.GetComponent<Pickup>();
         if (pickup != null)
         {
             if (IsWeapon(pickup.pickup_type) && equipped_weapon_prefab != null)
-                return;   
+                return;
 
             pickup_manager.HandlePickup(this, pickup);
-            return;   
+            return;
         }
  
         IInteractable interactable = collision.GetComponent<IInteractable>();
-        if (interactable != null && interactable.CanInteract())
+        last_interactable_object = interactable;
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        IInteractable interactable = collision.GetComponent<IInteractable>();
+        if(interactable != null)
         {
-            if (interactable.CanInteract())
-            {
-                interactable.Interact(this);
-            }
+            last_interactable_object = null;
             return;
         }
     }
@@ -169,11 +169,19 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     public void start_dialogue(NPCDialog data)
     {
-        if(dialogue_manager.is_dialogue_active)
+        if (dialogue_manager.is_dialogue_active)
             return;
 
         dialogue_manager.dialogue_data = data;
         dialogue_manager.StartDialogue();
+    }
+
+    public void interact()
+    {
+        if (last_interactable_object.CanInteract())
+        {
+            last_interactable_object.Interact(this);
+        }
     }
 
     // ============================================================= \\
