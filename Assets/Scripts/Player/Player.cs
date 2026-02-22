@@ -1,7 +1,16 @@
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Networking;
 using UnityEngine.U2D.Animation;
 
+public class PlayerAddRequest
+{
+    public string player_Nick;
+    public int currency_Wood;
+    public int currency_Gold;
+}
 public class Player : MonoBehaviour
 {
     [SerializeField] private PickupManager pickup_manager;
@@ -72,6 +81,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && last_interactable_object != null)
         {
             interact();
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SendLeaderboardData();
         }
         if (weapon_attack_started() && weapon_used + player_current_weapon.weapon_cooldown < Time.time)
         {
@@ -181,6 +194,34 @@ public class Player : MonoBehaviour
         if (last_interactable_object.CanInteract())
         {
             last_interactable_object.Interact(this);
+        }
+    }
+
+    // ============================================================= \\
+    //                          BACKEND                              \\
+    // ============================================================= \\
+    public async void SendLeaderboardData()
+    {
+        string url = "https://localhost:7277/Leaderboards/PlayerAdd";
+
+        PlayerAddRequest data = new PlayerAddRequest
+        {
+            player_Nick = "Novo",
+            currency_Wood = wood_currency,
+            currency_Gold = gold_currency
+        };
+
+        string data_string = JsonUtility.ToJson(data);
+        byte[] bodyRaw = Encoding.UTF8.GetBytes(data_string);
+
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        {
+            request.SetRequestHeader("Content-Type", "application/json");
+            request.uploadHandler = new UploadHandlerRaw(bodyRaw);
+            
+            var operation = request.SendWebRequest();
+            while (!operation.isDone)
+                await Task.Yield();
         }
     }
 
