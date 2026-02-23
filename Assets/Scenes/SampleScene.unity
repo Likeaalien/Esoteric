@@ -4980,7 +4980,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.52009, y: -6.95313, z: -12.078413}
+  m_LocalPosition: {x: -37.299595, y: -6.9529996, z: -12.078413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -119476,8 +119476,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 222.83917, y: -18.364883}
-  m_SizeDelta: {x: 8715.873, y: 434.115}
+  m_AnchoredPosition: {x: 222.0329, y: -31.534119}
+  m_SizeDelta: {x: 8683.623, y: 960.8843}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1203450009
 MonoBehaviour:
@@ -119512,7 +119512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Welcome to my prototype
+  m_Text: "Welcome to my prototype. \n"
 --- !u!222 &1203450010
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -121905,10 +121905,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -125712,7 +125712,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.47267115, y: -0.27739936}
+  m_Offset: {x: -0.38751626, y: -0.2773993}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -125722,7 +125722,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.0330288, y: 2.4699368}
+  m_Size: {x: 1.8627188, y: 2.4699368}
   m_EdgeRadius: 0
 --- !u!114 &1713440982
 MonoBehaviour:
@@ -129851,7 +129851,7 @@ Transform:
   m_GameObject: {fileID: 2066537580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.94, y: -6.38, z: -12.078413}
+  m_LocalPosition: {x: -39.95, y: -6.07, z: -12.078413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131267,12 +131267,12 @@ PrefabInstance:
     - target: {fileID: 2925655405394751604, guid: 2289a0520195b1548b838f383430f206,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.94
+      value: -39.95
       objectReference: {fileID: 0}
     - target: {fileID: 2925655405394751604, guid: 2289a0520195b1548b838f383430f206,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.38
+      value: -6.07
       objectReference: {fileID: 0}
     - target: {fileID: 2925655405394751604, guid: 2289a0520195b1548b838f383430f206,
         type: 3}
@@ -131687,6 +131687,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wooden_door
       objectReference: {fileID: 0}
+    - target: {fileID: 1601511645511494675, guid: 9a99341606347184c86b8ec92f4a44f7,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.9334428
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601511645511494675, guid: 9a99341606347184c86b8ec92f4a44f7,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.5957786
+      objectReference: {fileID: 0}
     - target: {fileID: 2652590583770127563, guid: 9a99341606347184c86b8ec92f4a44f7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -131736,6 +131746,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875911851842182446, guid: 9a99341606347184c86b8ec92f4a44f7,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5037261
+      objectReference: {fileID: 0}
+    - target: {fileID: 3875911851842182446, guid: 9a99341606347184c86b8ec92f4a44f7,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 0.24813694
       objectReference: {fileID: 0}
     - target: {fileID: 6323062381707372707, guid: 9a99341606347184c86b8ec92f4a44f7,
         type: 3}

@@ -160,7 +160,12 @@ public class Player : MonoBehaviour
         }
  
         IInteractable interactable = collision.GetComponent<IInteractable>();
-        last_interactable_object = interactable;
+        if(interactable != null)
+        {
+            last_interactable_object = interactable;
+            interactable.CreateInteractionIcon();
+            return;
+        } 
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -168,6 +173,7 @@ public class Player : MonoBehaviour
         if(interactable != null)
         {
             last_interactable_object = null;
+            interactable.DestroyInteractionIcon();
             return;
         }
     }
