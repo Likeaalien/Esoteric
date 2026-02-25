@@ -20,7 +20,6 @@ public class Player : MonoBehaviour
     Rigidbody2D rigidbody2d;
     Animator animator;
     Vector2 input_state;
-    public InputAction move_action;
     int player_movement_speed;
     Vector2 player_direction;    
     public Weapon player_current_weapon;
@@ -39,8 +38,6 @@ public class Player : MonoBehaviour
     public bool wooden_key;
     void Start()
     {
-        move_action.Enable();
-
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -53,13 +50,10 @@ public class Player : MonoBehaviour
         weapon_used = 0;
         wooden_key = false;
     }
-    void Update()
+    public void Move(InputAction.CallbackContext context)
     {
-        // Animations
-        animator.SetBool("IsRunning", input_state.sqrMagnitude > 0.01f);
+        input_state = context.ReadValue<Vector2>();
 
-        // Player direction
-        input_state = move_action.ReadValue<Vector2>();
         if (input_state.sqrMagnitude != 0)
         {
             input_state.Normalize();
@@ -68,24 +62,40 @@ public class Player : MonoBehaviour
             animator.SetFloat("Move X", input_state.x);
             animator.SetFloat("Move Y", input_state.y);    
         }
-
-        // Input key
-        if (Input.GetKeyDown(KeyCode.C))
+    }
+    public void Attack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             weapon_start_attack();
         }
-        if (Input.GetKeyDown(KeyCode.V))
+    }
+    public void DropWeapon(InputAction.CallbackContext context)
+    {
+        if(context.performed)
         {
             weapon_drop();
         }
-        if (Input.GetKeyDown(KeyCode.E) && last_interactable_object != null)
+    }
+    public void Interaction(InputAction.CallbackContext context)
+    {
+        if (context.performed && last_interactable_object != null)
         {
-            interact();
+            interact();    
         }
-        if (Input.GetKeyDown(KeyCode.T))
+    }
+    public void Send(InputAction.CallbackContext context)
+    {
+        if (context.performed)
         {
             SendLeaderboardData();
-        }
+        }    
+    }
+    void Update()
+    {
+        // Animations
+        animator.SetBool("IsRunning", input_state.sqrMagnitude > 0.01f);
+   
         if (weapon_attack_started() && weapon_used + player_current_weapon.weapon_cooldown < Time.time)
         {
             weapon_end_attack();
