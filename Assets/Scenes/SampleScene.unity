@@ -11239,7 +11239,7 @@ MonoBehaviour:
   m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 46
-  m_CharacterLimit: 0
+  m_CharacterLimit: 12
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -124011,6 +124011,7 @@ MonoBehaviour:
   panel_hud: {fileID: 192401121}
   player_name_field: {fileID: 916992510}
   player: {fileID: 1430828164131364702}
+  play_button: {fileID: 1344860438}
 --- !u!4 &1509561086
 Transform:
   m_ObjectHideFlags: 0
