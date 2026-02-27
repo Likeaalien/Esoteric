@@ -133287,7 +133287,19 @@ MonoBehaviour:
     m_ActionId: f265e28f-6280-4cdb-a6f8-fd5414899663
     m_ActionName: 'Player/Interaction[/Keyboard/e]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1430828164131364702}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: BackendSend
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 1c7d9823-6ca6-45c1-80da-b0f2753824c6
     m_ActionName: 'Player/Send[/Keyboard/t]'
   m_NeverAutoSwitchControlSchemes: 0

@@ -43,7 +43,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Send",
+                    "name": "BackendSend",
                     "type": "Button",
                     "id": "1c7d9823-6ca6-45c1-80da-b0f2753824c6",
                     "expectedControlType": "",
@@ -247,7 +247,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Send",
+                    "action": "BackendSend",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

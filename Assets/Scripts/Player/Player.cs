@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
             interact();    
         }
     }
-    public void Send(InputAction.CallbackContext context)
+    public void BackendSend(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
