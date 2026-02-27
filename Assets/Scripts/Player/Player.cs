@@ -27,7 +27,8 @@ public class Player : MonoBehaviour
     public GameObject arrow_prefab;
     public GameObject equipped_weapon_prefab;
     private IInteractable last_interactable_object;
-    
+    public string player_nickname;
+
     // ============================================================= \\
     //                          INVENTORY                            \\
     // ============================================================= \\
@@ -222,7 +223,7 @@ public class Player : MonoBehaviour
 
         PlayerAddRequest data = new PlayerAddRequest
         {
-            player_Nick = "Novo",
+            player_Nick = player_nickname,
             currency_Wood = wood_currency,
             currency_Gold = gold_currency
         };
@@ -240,7 +241,6 @@ public class Player : MonoBehaviour
                 await Task.Yield();
         }
     }
-
     // ============================================================= \\
     //                            DEBUG                              \\
     // ============================================================= \\
