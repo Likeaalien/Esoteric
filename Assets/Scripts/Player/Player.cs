@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
             return;
         
         float angle = Mathf.Atan2(transform.position.y, player_direction.x) * Mathf.Rad2Deg;
-        Instantiate(equipped_weapon_prefab, rigidbody2d.position + 2*player_direction, Quaternion.Euler(0, 0, angle));
+        Instantiate(equipped_weapon_prefab, rigidbody2d.position, Quaternion.Euler(0, 0, angle));
 
         player_set_unarmed();
         equipped_weapon_prefab = null; 
@@ -163,11 +163,11 @@ public class Player : MonoBehaviour
         Pickup pickup = collision.GetComponent<Pickup>();
         if (pickup != null)
         {
-            if (IsWeapon(pickup.pickup_type) && equipped_weapon_prefab != null)
+            if(!IsWeapon(pickup.pickup_type)) 
+            {
+                item_interact(pickup);
                 return;
-
-            pickup_manager.HandlePickup(this, pickup);
-            return;
+            }
         }
  
         IInteractable interactable = collision.GetComponent<IInteractable>();
@@ -195,7 +195,7 @@ public class Player : MonoBehaviour
     }
 
     // ============================================================= \\
-    //                          DIALOGUE                             \\
+    //                          INTERACT                             \\
     // ============================================================= \\
     public void start_dialogue(NPCDialog data)
     {
@@ -204,6 +204,11 @@ public class Player : MonoBehaviour
 
         dialogue_manager.dialogue_data = data;
         dialogue_manager.StartDialogue();
+    }
+
+    public void item_interact(Pickup pickup)
+    {
+        pickup_manager.HandlePickup(this, pickup);
     }
 
     public void interact()
