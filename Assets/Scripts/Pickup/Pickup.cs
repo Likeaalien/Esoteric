@@ -30,6 +30,9 @@ public class Pickup : MonoBehaviour, IInteractable
     }
     public void Interact(Player player)
     {
+        if (player.equipped_weapon_prefab != null)
+            return;
+            
         player.item_interact(this);
     }
     public void DestroyInteractionIcon()

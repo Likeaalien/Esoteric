@@ -139,7 +139,7 @@ public class Player : MonoBehaviour
             return;
         
         float angle = Mathf.Atan2(transform.position.y, player_direction.x) * Mathf.Rad2Deg;
-        Instantiate(equipped_weapon_prefab, rigidbody2d.position, Quaternion.Euler(0, 0, angle));
+        Instantiate(equipped_weapon_prefab, rigidbody2d.position, Quaternion.Euler(0, 0, 0));
 
         player_set_unarmed();
         equipped_weapon_prefab = null; 
