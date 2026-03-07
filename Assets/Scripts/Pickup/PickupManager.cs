@@ -19,7 +19,7 @@ public class PickupManager : MonoBehaviour
             case PickupType.Resource_Ore:
             case PickupType.Wooden_key:
                 AddResource(player, pickup);
-                break;    
+                break;
         }
         Destroy(pickup.gameObject);
     }
@@ -50,7 +50,7 @@ public class PickupManager : MonoBehaviour
             case PickupType.Weapon_Rock:
                 player.player_current_weapon = new RangeWeapon(10, 0.8f, player.rock_prefab, 10, 150);
                 player.ChangeSprite("Unarmed");
-                break;  
+                break;
         }
     }
     void AddResource(Player player, Pickup pickup)

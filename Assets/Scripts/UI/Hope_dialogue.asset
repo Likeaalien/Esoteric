@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e925bb14c1bcbc74baacc6e565c5ed79, type: 3}
-  m_Name: Female_dialogue
+  m_Name: Hope_dialogue
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialog
   npc_name: Hope
   npc_portrait: {fileID: -7789694780284919566, guid: a1f5202f55445d64b8c4b6d27964497e,
