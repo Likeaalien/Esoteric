@@ -85,13 +85,6 @@ public class Player : MonoBehaviour
             interact();    
         }
     }
-    public void BackendSend(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            SendLeaderboardData();
-        }    
-    }
     void Update()
     {
         // Animations
@@ -224,7 +217,7 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     public async void SendLeaderboardData()
     {
-        string url = "https://localhost:7277/Leaderboards/PlayerAdd";
+        string url = "http://109.245.69.47:10002/Leaderboards/PlayerAdd";
 
         PlayerAddRequest data = new PlayerAddRequest
         {

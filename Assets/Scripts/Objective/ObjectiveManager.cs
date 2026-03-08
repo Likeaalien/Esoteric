@@ -44,7 +44,8 @@ public class ObjectiveManager : MonoBehaviour
                 objective_text.text = "Use bow to lower down the bridge";
                 break;
             case Triggers.Bridge_done:
-                objective_text.text = "Congrats";
+                objective_text.text = "Congratulations! You've been added to our leaderboard.";
+                player.SendLeaderboardData();
                 break;
         }
         Destroy(trigger.gameObject);

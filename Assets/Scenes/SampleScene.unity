@@ -2225,7 +2225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &192401122
 Transform:
   m_ObjectHideFlags: 0
@@ -119848,7 +119848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1115103277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -123996,7 +123996,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509561084}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16beb45fb757577439c4bc2356266096, type: 3}
   m_Name: 
@@ -126948,7 +126948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c094a37d47eb244a389534e4f09c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Female_1
-  hope_dialogue: {fileID: 11400000, guid: 48209e864d76a8947861d7baa3799ca6, type: 2}
+  npc_dialogue_data: {fileID: 11400000, guid: 48209e864d76a8947861d7baa3799ca6, type: 2}
 --- !u!95 &1713440983
 Animator:
   serializedVersion: 7
@@ -133299,22 +133299,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: f265e28f-6280-4cdb-a6f8-fd5414899663
     m_ActionName: 'Player/Interaction[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1430828164131364702}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: BackendSend
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 1c7d9823-6ca6-45c1-80da-b0f2753824c6
-    m_ActionName: 'Player/Send[/Keyboard/t]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -133362,6 +133346,12 @@ PrefabInstance:
     - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
         type: 3}
       propertyPath: uancha_dialogue
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f225444c8597fc4ab23d778fd462b3f,
+        type: 2}
+    - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
+        type: 3}
+      propertyPath: npc_dialogue_data
       value: 
       objectReference: {fileID: 11400000, guid: 3f225444c8597fc4ab23d778fd462b3f,
         type: 2}
@@ -133559,6 +133549,12 @@ PrefabInstance:
       propertyPath: portrait_image_1
       value: 
       objectReference: {fileID: 2040394549}
+    - target: {fileID: 8038215061102749789, guid: f5afea0c7940b174ea471200c5692ddf,
+        type: 3}
+      propertyPath: npc_dialogue_data
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ab22660a99c6804980b74233a664bfb,
+        type: 2}
     - target: {fileID: 8038215061102749789, guid: f5afea0c7940b174ea471200c5692ddf,
         type: 3}
       propertyPath: hunter_dialogue_data
