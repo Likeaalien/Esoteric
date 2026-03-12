@@ -8526,7 +8526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  Uancha_NPC: {fileID: 0}
+  uancha_NPC: {fileID: 0}
+  hunter_NPC: {fileID: 0}
   objective_text: {fileID: 0}
 --- !u!1001 &693103849
 PrefabInstance:
@@ -120349,7 +120350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1200426034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120858,6 +120859,8 @@ MonoBehaviour:
   dialogue_data: {fileID: 0}
   is_typing: 0
   is_dialogue_active: 0
+  auto_progress_delay: 1.5
+  typing_speed: 0.05
 --- !u!4 &1224607851
 Transform:
   m_ObjectHideFlags: 0
@@ -121208,7 +121211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1264951843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126948,7 +126951,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2c094a37d47eb244a389534e4f09c66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Female_1
-  npc_dialogue_data: {fileID: 11400000, guid: 48209e864d76a8947861d7baa3799ca6, type: 2}
+  npc_dialogue_data_1: {fileID: 11400000, guid: 48209e864d76a8947861d7baa3799ca6,
+    type: 2}
+  npc_dialogue_data_2: {fileID: 0}
+  npc_dialogue_data_3: {fileID: 0}
+  objective_manager: {fileID: 1794323946}
 --- !u!95 &1713440983
 Animator:
   serializedVersion: 7
@@ -128269,7 +128276,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1430828164131364702}
-  Uancha_NPC: {fileID: 0}
+  uancha_NPC: {fileID: 2868039643393490199}
+  hunter_NPC: {fileID: 1947056486}
   objective_text: {fileID: 1203450009}
 --- !u!4 &1794323947
 Transform:
@@ -129771,6 +129779,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d160ba79ad4b80d4eb1bc8b093561f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1947056486 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8038215061102749789, guid: f5afea0c7940b174ea471200c5692ddf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4003865330758174405}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a405867673f45ff4b8f4a9ee1525387c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1948567328
@@ -131448,7 +131468,7 @@ Transform:
   m_GameObject: {fileID: 2066537580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -39.8, y: -6.7, z: -12.078413}
+  m_LocalPosition: {x: -39.86, y: -5.97, z: -12.078413}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -133040,12 +133060,12 @@ PrefabInstance:
     - target: {fileID: 2925655405394751604, guid: 2289a0520195b1548b838f383430f206,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -39.8
+      value: -39.86
       objectReference: {fileID: 0}
     - target: {fileID: 2925655405394751604, guid: 2289a0520195b1548b838f383430f206,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.7
+      value: -5.97
       objectReference: {fileID: 0}
     - target: {fileID: 2925655405394751604, guid: 2289a0520195b1548b838f383430f206,
         type: 3}
@@ -133345,6 +133365,11 @@ PrefabInstance:
       objectReference: {fileID: 2040394549}
     - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
         type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 1224607850}
+    - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
+        type: 3}
       propertyPath: uancha_dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 3f225444c8597fc4ab23d778fd462b3f,
@@ -133354,6 +133379,29 @@ PrefabInstance:
       propertyPath: npc_dialogue_data
       value: 
       objectReference: {fileID: 11400000, guid: 3f225444c8597fc4ab23d778fd462b3f,
+        type: 2}
+    - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
+        type: 3}
+      propertyPath: objective_manager
+      value: 
+      objectReference: {fileID: 1794323946}
+    - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
+        type: 3}
+      propertyPath: npc_dialogue_data_1
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f225444c8597fc4ab23d778fd462b3f,
+        type: 2}
+    - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
+        type: 3}
+      propertyPath: npc_dialogue_data_2
+      value: 
+      objectReference: {fileID: 11400000, guid: 2534545753b28f1468ed32c8d069ce04,
+        type: 2}
+    - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
+        type: 3}
+      propertyPath: npc_dialogue_data_3
+      value: 
+      objectReference: {fileID: 11400000, guid: f74d4d5ae41a7b945979da780ffe9a82,
         type: 2}
     - target: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
         type: 3}
@@ -133439,6 +133487,18 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 588997638}
   m_SourcePrefab: {fileID: 100100000, guid: 48e429213797a18438ef4ba454e05381, type: 3}
+--- !u!114 &2868039643393490199 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4388547412536880258, guid: 48e429213797a18438ef4ba454e05381,
+    type: 3}
+  m_PrefabInstance: {fileID: 2868039643393490198}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588997632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036c29c743ac0ef4291310d47a8e5f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4003865330758174405
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133554,6 +133614,29 @@ PrefabInstance:
       propertyPath: npc_dialogue_data
       value: 
       objectReference: {fileID: 11400000, guid: 0ab22660a99c6804980b74233a664bfb,
+        type: 2}
+    - target: {fileID: 8038215061102749789, guid: f5afea0c7940b174ea471200c5692ddf,
+        type: 3}
+      propertyPath: objective_manager
+      value: 
+      objectReference: {fileID: 1794323946}
+    - target: {fileID: 8038215061102749789, guid: f5afea0c7940b174ea471200c5692ddf,
+        type: 3}
+      propertyPath: npc_dialogue_data_1
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ab22660a99c6804980b74233a664bfb,
+        type: 2}
+    - target: {fileID: 8038215061102749789, guid: f5afea0c7940b174ea471200c5692ddf,
+        type: 3}
+      propertyPath: npc_dialogue_data_2
+      value: 
+      objectReference: {fileID: 11400000, guid: e3afe8d3a2320a9448973d083e133e96,
+        type: 2}
+    - target: {fileID: 8038215061102749789, guid: f5afea0c7940b174ea471200c5692ddf,
+        type: 3}
+      propertyPath: npc_dialogue_data_3
+      value: 
+      objectReference: {fileID: 11400000, guid: 6fdbfe1a4122bbd4cbaa1bd94c8fa665,
         type: 2}
     - target: {fileID: 8038215061102749789, guid: f5afea0c7940b174ea471200c5692ddf,
         type: 3}

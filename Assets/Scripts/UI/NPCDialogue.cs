@@ -8,7 +8,4 @@ public class NPCDialog : ScriptableObject
     public string npc_name;
     public Sprite npc_portrait;
     public string[] dialogue_lines;
-    public bool[] auto_progress_lines;
-    public float auto_progress_delay = 1.5f;
-    public float typing_speed = 0.05f;
 }

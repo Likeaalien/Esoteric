@@ -3,7 +3,10 @@ using UnityEngine;
 
 public abstract class NPC : MonoBehaviour, IInteractable
 {
-    [SerializeField] private NPCDialog npc_dialogue_data;
+    [SerializeField] protected NPCDialog npc_dialogue_data_1;
+    [SerializeField] protected NPCDialog npc_dialogue_data_2;
+    [SerializeField] protected NPCDialog npc_dialogue_data_3;
+    [SerializeField] protected ObjectiveManager objective_manager;
     protected TextMeshPro npc_name;
     private GameObject npc_interact_icon;
     void Awake()
@@ -20,9 +23,9 @@ public abstract class NPC : MonoBehaviour, IInteractable
         if(CanInteract())
             npc_interact_icon = Instantiate(Resources.Load<GameObject>("UI/InteractionIcon"), npc_name.transform.position + new Vector3(0f, 0f, 0f), Quaternion.identity);
     }
-    public void Interact(Player player)
+    public virtual void Interact(Player player)
     {
-        player.start_dialogue(npc_dialogue_data);
+        player.start_dialogue(npc_dialogue_data_1);
     }
     public void DestroyInteractionIcon()
     {

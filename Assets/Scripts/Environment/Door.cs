@@ -4,9 +4,7 @@ public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] private GameObject invisible_wall;
     private GameObject interact_icon;
-    public NPCDialog door_dialogue_data;
-   
-    
+    public NPCDialog door_dialogue_data;   
     public bool CanInteract()
     {
         return true;
@@ -23,7 +21,6 @@ public class Door : MonoBehaviour, IInteractable
             player.start_dialogue(door_dialogue_data);
             return;
         }
-
         Destroy(gameObject);
         Destroy(invisible_wall);
         Instantiate(Resources.Load<GameObject>("Prefabs/Wooden_door_open"), transform.position, Quaternion.identity);
