@@ -35,7 +35,7 @@ public class Hunter : NPC
         switch(objective_manager.hunter_quest_1)
         {
             case Quest_state.STARTED:
-                if (objective_manager.player.player_current_weapon is MeleeWeapon melee && melee.weapon_type == MeleeType.Tool_Pickaxe)
+                if (objective_manager.get_player_melee_weapon_type() == MeleeType.Tool_Pickaxe)
                 {
                     objective_manager.hunter_quest_1 = Quest_state.UPDATE_1;
                 }
@@ -46,7 +46,7 @@ public class Hunter : NPC
                     objective_manager.hunter_quest_1 = Quest_state.UPDATE_2;
                 }
 
-                if (objective_manager.player.player_current_weapon is MeleeWeapon melee_1 && melee_1.weapon_type == MeleeType.Tool_Pickaxe)
+                if (objective_manager.get_player_melee_weapon_type() == MeleeType.Tool_Pickaxe)
                 {
                     objective_manager.set_objective_text("Mine gold: " + objective_manager.player.gold_currency.ToString() + "/" + quest1_gold_requirements.ToString());
                 }

@@ -7,9 +7,10 @@ using UnityEngine.U2D.Animation;
 
 public class PlayerAddRequest
 {
-    public string player_Nick;
-    public int currency_Wood;
-    public int currency_Gold;
+    public string Player_Nick;
+    public int Currency_Wood;
+    public int Currency_Gold;
+    public float Time;
 }
 public class Player : MonoBehaviour
 {
@@ -218,14 +219,14 @@ public class Player : MonoBehaviour
     public async void SendLeaderboardData()
     {
         string url = "http://109.245.69.47:10002/Leaderboards/PlayerAdd";
-
+        
         PlayerAddRequest data = new PlayerAddRequest
         {
-            player_Nick = player_nickname,
-            currency_Wood = wood_currency,
-            currency_Gold = gold_currency
+            Player_Nick = player_nickname,
+            Currency_Wood = wood_currency,
+            Currency_Gold = gold_currency,
+            Time = Time.time
         };
-
         string data_string = JsonUtility.ToJson(data);
         byte[] bodyRaw = Encoding.UTF8.GetBytes(data_string);
 

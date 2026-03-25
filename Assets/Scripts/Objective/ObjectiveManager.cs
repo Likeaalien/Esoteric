@@ -28,6 +28,18 @@ public class ObjectiveManager : MonoBehaviour
     {
         objective_text.text = text;
     }
+    public MeleeType? get_player_melee_weapon_type()
+    {
+        MeleeWeapon current_weapon = player.player_current_weapon as MeleeWeapon;
+        if(current_weapon != null)
+        {
+            return current_weapon.weapon_type;
+        }
+        else
+        {
+            return null;
+        }
+    }
 
     public void HandleTriggers(ObjectiveTrigger trigger)
     {

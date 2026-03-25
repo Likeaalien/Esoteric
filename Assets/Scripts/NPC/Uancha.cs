@@ -49,7 +49,7 @@ public class Uancha : NPC
                 {
                     objective_manager.uancha_quest_1 = Quest_state.UPDATE_2;
                 }
-                if (objective_manager.player.player_current_weapon is MeleeWeapon melee && melee.weapon_type == MeleeType.Tool_Axe)
+                if (objective_manager.get_player_melee_weapon_type() == MeleeType.Tool_Axe)
                 {
                     objective_manager.set_objective_text("Cut wood: " + objective_manager.player.wood_currency.ToString() + "/" + quest1_wood_requirement.ToString());
                 }
