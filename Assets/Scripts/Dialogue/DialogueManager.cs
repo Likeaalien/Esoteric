@@ -16,8 +16,8 @@ public class DialogueManager : MonoBehaviour
         is_dialogue_active = true;
 
         dialogue_index = 0;
-        dialogue_panel.portrait_image.sprite = dialogue_data.npc_portrait;
         dialogue_panel.name_text.SetText(dialogue_data.npc_name);
+        dialogue_panel.portrait_image.sprite = dialogue_data.npc_portrait;
         dialogue_panel.gameObject.SetActive(true);
 
         NextLine();

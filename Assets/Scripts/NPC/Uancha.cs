@@ -32,6 +32,10 @@ public class Uancha : NPC
             objective_manager.set_objective_text("Find the door and unlock it");
         }
     }
+    public void Testing()
+    {
+        Debug.Log("Testing the debug");
+    }
 
     void Update()
     {   

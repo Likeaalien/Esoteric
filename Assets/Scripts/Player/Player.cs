@@ -150,13 +150,15 @@ public class Player : MonoBehaviour
         ObjectiveTrigger trigger = collision.GetComponent<ObjectiveTrigger>();
         if (trigger != null)
         {
-            objective_manager.HandleTriggers(trigger);  
+            objective_manager.HandleTriggers(trigger); 
+            Debug.Log("Trigger: ", trigger); 
             return;
         }
         
         Pickup pickup = collision.GetComponent<Pickup>();
         if (pickup != null)
         {
+            Debug.Log("Pickup: " , pickup);
             if(!IsWeapon(pickup.pickup_type)) 
             {
                 item_interact(pickup);
@@ -171,6 +173,10 @@ public class Player : MonoBehaviour
             interactable.CreateInteractionIcon();
             return;
         } 
+
+        
+        
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
