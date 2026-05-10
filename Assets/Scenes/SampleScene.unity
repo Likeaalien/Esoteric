@@ -1496,7 +1496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &85343444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -126062,7 +126062,7 @@ GameObject:
   - component: {fileID: 1567898017}
   - component: {fileID: 1567898019}
   m_Layer: 5
-  m_Name: Dialogue_Dispaly_Container
+  m_Name: Dialogue_Display_Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127160,7 +127160,7 @@ GameObject:
   - component: {fileID: 1662096461}
   - component: {fileID: 1662096460}
   m_Layer: 5
-  m_Name: New Hud
+  m_Name: Hud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129516,7 +129516,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1759740268
 RectTransform:
   m_ObjectHideFlags: 0
@@ -129827,7 +129827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6bbe6fb56cf17143a5b46e5c35b3d3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objective_text: {fileID: 0}
+  objective_text: {fileID: 1992866024}
   uancha_quest_1: 0
   hunter_quest_1: 0
   player: {fileID: 1430828164131364702}
@@ -130924,6 +130924,7 @@ GameObject:
   - component: {fileID: 1887345163}
   - component: {fileID: 1887345162}
   - component: {fileID: 1887345161}
+  - component: {fileID: 1887345164}
   m_Layer: 5
   m_Name: Top_Row
   m_TagString: Untagged
@@ -131016,6 +131017,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887345159}
   m_CullTransparentMesh: 1
+--- !u!114 &1887345164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887345159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d54531977ecb194c95e2d3aa7a5d72a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.OnScreen.OnScreenButton
+  m_ControlPath: 
 --- !u!1 &1890905443
 GameObject:
   m_ObjectHideFlags: 0

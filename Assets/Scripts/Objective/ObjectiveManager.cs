@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public enum Quest_state
@@ -19,7 +20,7 @@ public enum PlayerObjectives
 }
 public class ObjectiveManager : MonoBehaviour
 {
-    [SerializeField] private Text objective_text;
+    [SerializeField] private TextMeshProUGUI objective_text;
     public Quest_state uancha_quest_1;
     public Quest_state hunter_quest_1;
     public Player player;
