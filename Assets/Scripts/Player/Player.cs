@@ -21,13 +21,14 @@ public class Player : MonoBehaviour
     Rigidbody2D rigidbody2d;
     Animator animator;
     Vector2 input_state;
-    int player_movement_speed;
+    private int player_movement_speed;
     Vector2 player_direction;    
+    Vector2 player_position;
     public Weapon player_current_weapon;
     public GameObject rock_prefab;
     public GameObject arrow_prefab;
     public GameObject equipped_weapon_prefab;
-    private IInteractable last_interactable_object;
+    public IInteractable last_interactable_object;
     public string player_nickname;
 
     // ============================================================= \\
@@ -38,6 +39,18 @@ public class Player : MonoBehaviour
     public int gold_currency;
     public float weapon_used;
     public bool wooden_key;
+     // ============================================================= \\
+    //                          GET-SET                              \\
+    // ============================================================= \\
+    public int Change_Movement
+    {
+        get { return player_movement_speed; }
+        set { player_movement_speed = value; }
+    }
+    public Vector2 Player_Position
+    {
+        get { return player_position; }
+    }
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -83,7 +96,7 @@ public class Player : MonoBehaviour
     {
         if (context.performed && last_interactable_object != null)
         {
-            interact();    
+            interact();
         }
     }
     void Update()
@@ -95,6 +108,7 @@ public class Player : MonoBehaviour
         {
             weapon_end_attack();
         }
+        player_position = transform.position;
     }
     void FixedUpdate()
     {
@@ -120,7 +134,7 @@ public class Player : MonoBehaviour
             return;
 
         weapon_used = Time.time;
-        animator.SetTrigger("isAttacking"); 
+        animator.SetTrigger("isAttacking");
     }
     void weapon_end_attack()
     {
@@ -150,15 +164,13 @@ public class Player : MonoBehaviour
         ObjectiveTrigger trigger = collision.GetComponent<ObjectiveTrigger>();
         if (trigger != null)
         {
-            objective_manager.HandleTriggers(trigger); 
-            Debug.Log("Trigger: ", trigger); 
+            objective_manager.HandleTriggers(trigger);  
             return;
         }
         
         Pickup pickup = collision.GetComponent<Pickup>();
         if (pickup != null)
         {
-            Debug.Log("Pickup: " , pickup);
             if(!IsWeapon(pickup.pickup_type)) 
             {
                 item_interact(pickup);
@@ -172,11 +184,7 @@ public class Player : MonoBehaviour
             last_interactable_object = interactable;
             interactable.CreateInteractionIcon();
             return;
-        } 
-
-        
-        
-
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
