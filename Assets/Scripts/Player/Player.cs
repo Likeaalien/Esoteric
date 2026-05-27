@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -34,11 +35,13 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     //                          INVENTORY                            \\
     // ============================================================= \\
-    public int wood_currency;
-    public int ore_currency;
-    public int gold_currency;
+    private Dictionary<int, int> player_inventory;
+    const int WOOD_ID = 0;
+    const int ORE_ID = 1;
+    const int GOLD_ID = 2;
     public float weapon_used;
     public bool wooden_key;
+
      // ============================================================= \\
     //                          GET-SET                              \\
     // ============================================================= \\
@@ -64,6 +67,8 @@ public class Player : MonoBehaviour
 
         weapon_used = 0;
         wooden_key = false;
+
+        player_inventory = new();
     }
     public void Move(InputAction.CallbackContext context)
     {
@@ -115,7 +120,30 @@ public class Player : MonoBehaviour
         Vector2 key_pressed = rigidbody2d.position + input_state * player_movement_speed * Time.deltaTime;  
         rigidbody2d.MovePosition(key_pressed);
     }
+    // ============================================================= \\
+    //                           PLAYER CURRENCY                     \\
+    // ============================================================= \\
 
+    // TODO: Update currency
+    public void UpdateCurrency(int id, int amount)
+    {
+        if (!player_inventory.ContainsKey(id))
+        {
+            player_inventory[id] = amount;
+        }
+        else
+        {
+            player_inventory[id] += amount;
+        }
+        Debug.Log(player_inventory[id]);
+    }
+    public int GetCurrency(int id)
+    {
+        if (player_inventory.ContainsKey(id))
+            return player_inventory[id];
+
+        return 0;
+    }
     // ============================================================= \\
     //                           WEAPON                              \\
     // ============================================================= \\
@@ -237,8 +265,8 @@ public class Player : MonoBehaviour
         PlayerAddRequest data = new PlayerAddRequest
         {
             Player_Nick = player_nickname,
-            Currency_Wood = wood_currency,
-            Currency_Gold = gold_currency,
+            Currency_Wood = GetCurrency(0),
+            Currency_Gold = GetCurrency(2),
             Time = Time.time
         };
         string data_string = JsonUtility.ToJson(data);

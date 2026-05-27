@@ -16,11 +16,11 @@ public class Pot : MonoBehaviour
         Player player = collision.gameObject.GetComponent<Player>();
         if (player == null)
             return;
-        if (player.gold_currency < 7 || player.ore_currency < 7)
+        if (player.GetCurrency(2) < 7 || player.GetCurrency(1) < 7)
             return;
         
-        player.gold_currency -= 7;
-        player.ore_currency -= 7;
+        player.UpdateCurrency(1, (-1)*7);
+        player.UpdateCurrency(2, (-1)*7);
         easter_egg = true;
 
         Instantiate(Resources.Load<GameObject>("Prefabs/Filled_pot"));
