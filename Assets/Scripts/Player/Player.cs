@@ -53,6 +53,10 @@ public class Player : MonoBehaviour
     {
         get { return player_position; }
     }
+    public string Players_Name
+    {
+        get {return player_nickname;}
+    }
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();

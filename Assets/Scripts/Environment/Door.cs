@@ -18,6 +18,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         if (player.wooden_key == false)
         {
+            door_dialogue_data.npc_name = player.Players_Name;
             player.start_dialogue(door_dialogue_data);
             return;
         }
