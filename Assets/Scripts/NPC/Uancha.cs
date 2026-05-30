@@ -28,8 +28,7 @@ public class Uancha : NPC
                 return;
 
             player.start_dialogue(npc_dialogue_data_3);
-            player.UpdateCurrency(0, (-1)*quest1_wood_requirement);
-            // player.wood_currency -= quest1_wood_requirement;
+            player.UpdateCurrency(0, (-1) * quest1_wood_requirement);
             Instantiate(Resources.Load<GameObject>("Prefabs/Wooden_key"), transform.position + Vector3.left, Quaternion.identity);
             objective_manager.uancha_quest_1 = Quest_state.FINISHED;
             objective_manager.hunter_quest_1 = Quest_state.NOT_STARTED;

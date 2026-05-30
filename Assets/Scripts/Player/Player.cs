@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
     const int GOLD_ID = 2;
     public float weapon_used;
     public bool wooden_key;
-
      // ============================================================= \\
     //                          GET-SET                              \\
     // ============================================================= \\
@@ -260,6 +259,9 @@ public class Player : MonoBehaviour
     // ============================================================= \\
     public async void SendLeaderboardData()
     {
+        if (player_nickname == "Marvin")
+            return;
+        
         string url = "http://109.245.69.47:10002/Leaderboards/PlayerAdd";
         
         PlayerAddRequest data = new PlayerAddRequest

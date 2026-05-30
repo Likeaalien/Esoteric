@@ -58,15 +58,12 @@ public class PickupManager : MonoBehaviour
         switch(pickup.pickup_type)
         {
             case PickupType.Resource_Wood:
-                // player.wood_currency += 1;
                 player.UpdateCurrency(0, 1);
                 break;
             case PickupType.Resource_Gold:
-                // player.gold_currency += 1;
                 player.UpdateCurrency(2, 1);
                 break;
             case PickupType.Resource_Ore:
-                // player.ore_currency += 1;
                 player.UpdateCurrency(1, 1);
                 break;
             case PickupType.Wooden_key:

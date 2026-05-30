@@ -27,8 +27,7 @@ public class Hunter : NPC
                 return;
 
             player.start_dialogue(npc_dialogue_data_3);
-            player.UpdateCurrency(2, (-1)*quest1_gold_requirements);
-            // player.gold_currency -= quest1_gold_requirements;
+            player.UpdateCurrency(2, (-1) * quest1_gold_requirements);
             Instantiate(Resources.Load<GameObject>("Prefabs/Bow"), transform.position + Vector3.down, Quaternion.identity);
             objective_manager.hunter_quest_1 = Quest_state.FINISHED;
             objective_manager.set_objective_text("Use bow to lower down the bridge");
